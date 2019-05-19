@@ -5,18 +5,18 @@
 <title>Codeforces Round #561 (Div2) - Rainy的小小窝🏡</title>
 <base href="/">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-<link rel="canonical" href="http://rainyblog.top/post/cf561/">
+<link rel="canonical" href="http://rainyblog.top/post/cf#561/">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <meta name="description" content="开开心心的一场div2.本菜鸡第一次上了70+分心情还是很激动的哈哈哈… 呐,寻思着刚开了个博客得写点啥,就cf献祭了. 嘿嘿嘿废话结束.  A. Silent Classroom签到题 题意 : 给出n(n &amp;lt; 100)个字符串代表n个学生,有两个房间,两个首字符相同的学生若在同一房间就会聊天,可以组成一个无序对,要求找出两个房间中聊天对数最少的分配方案.并输出对数. 样例:1234565">
 <meta name="keywords" content="ICPC,题解,Codeforces">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Codeforces Round #561 (Div2)">
-<meta property="og:url" content="http://rainyblog.top/post/cf561/index.html">
+<meta property="og:url" content="http://rainyblog.top/post/cf#561/index.html">
 <meta property="og:site_name" content="Rainy的小小窝🏡">
 <meta property="og:description" content="开开心心的一场div2.本菜鸡第一次上了70+分心情还是很激动的哈哈哈… 呐,寻思着刚开了个博客得写点啥,就cf献祭了. 嘿嘿嘿废话结束.  A. Silent Classroom签到题 题意 : 给出n(n &amp;lt; 100)个字符串代表n个学生,有两个房间,两个首字符相同的学生若在同一房间就会聊天,可以组成一个无序对,要求找出两个房间中聊天对数最少的分配方案.并输出对数. 样例:1234565">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.loli.net/2019/05/18/5cdeea9d6a21e40944.jpg">
-<meta property="og:updated_time" content="2019-05-18T14:50:08.399Z">
+<meta property="og:updated_time" content="2019-05-18T15:08:17.543Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Codeforces Round #561 (Div2)">
 <meta name="twitter:description" content="开开心心的一场div2.本菜鸡第一次上了70+分心情还是很激动的哈哈哈… 呐,寻思着刚开了个博客得写点啥,就cf献祭了. 嘿嘿嘿废话结束.  A. Silent Classroom签到题 题意 : 给出n(n &amp;lt; 100)个字符串代表n个学生,有两个房间,两个首字符相同的学生若在同一房间就会聊天,可以组成一个无序对,要求找出两个房间中聊天对数最少的分配方案.并输出对数. 样例:1234565">
@@ -25,7 +25,7 @@
 <link rel="stylesheet" href="/styles.cb7200f652beedaca38a.css">
 <link rel="stylesheet" href="/theme.3c29fb81d119a8cf5ddb.css">
 <script src="/config.3f9652143992370ce40c.js"></script>
-<script type="application/ld+json">[{"@context":"http://schema.org","@type":"WebSite","publisher":{"@type":"Person","name":"Rainy","description":"沉下心来写点东西.","image":"https://i.loli.net/2019/05/18/5cdeea9d6a21e40944.jpg"},"url":"http://rainyblog.top","image":"https://i.loli.net/2019/05/18/5cdeea9d6a21e40944.jpg","description":null,"author":{"@type":"Person","name":"Rainy","description":"沉下心来写点东西.","image":"https://i.loli.net/2019/05/18/5cdeea9d6a21e40944.jpg"},"inLanguage":{"@type":"Language","alternateName":"zh-Hans"}},{"@context":"http://schema.org","@type":"Article","articleSection":"ICPC","url":"http://rainyblog.top/post/cf561/","headline":"Codeforces Round #561 (Div2)","image":"https://i.loli.net/2019/05/18/5cdeea9d6a21e40944.jpg","datePublished":"2019-05-18T12:51:30.000Z","dateModified":"2019-05-18T14:50:08.399Z","keywords":"ICPC,题解,Codeforces","description":null,"publisher":{"@type":"Organization","name":"Rainy的小小窝🏡","logo":{"@type":"ImageObject","url":"https://i.loli.net/2019/05/18/5cdeea9d6a21e40944.jpg"}},"author":{"@type":"Person","name":"Rainy","description":"沉下心来写点东西.","image":"https://i.loli.net/2019/05/18/5cdeea9d6a21e40944.jpg"},"inLanguage":{"@type":"Language","alternateName":"zh-Hans"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://rainyblog.top/post/cf561/"}}]</script></head>
+<script type="application/ld+json">[{"@context":"http://schema.org","@type":"WebSite","publisher":{"@type":"Person","name":"Rainy","description":"沉下心来写点东西.","image":"https://i.loli.net/2019/05/18/5cdeea9d6a21e40944.jpg"},"url":"http://rainyblog.top","image":"https://i.loli.net/2019/05/18/5cdeea9d6a21e40944.jpg","description":null,"author":{"@type":"Person","name":"Rainy","description":"沉下心来写点东西.","image":"https://i.loli.net/2019/05/18/5cdeea9d6a21e40944.jpg"},"inLanguage":{"@type":"Language","alternateName":"zh-Hans"}},{"@context":"http://schema.org","@type":"Article","articleSection":"ICPC","url":"http://rainyblog.top/post/cf#561/","headline":"Codeforces Round #561 (Div2)","image":"https://i.loli.net/2019/05/18/5cdeea9d6a21e40944.jpg","datePublished":"2019-05-18T12:51:30.000Z","dateModified":"2019-05-18T15:08:17.543Z","keywords":"ICPC,题解,Codeforces","description":null,"publisher":{"@type":"Organization","name":"Rainy的小小窝🏡","logo":{"@type":"ImageObject","url":"https://i.loli.net/2019/05/18/5cdeea9d6a21e40944.jpg"}},"author":{"@type":"Person","name":"Rainy","description":"沉下心来写点东西.","image":"https://i.loli.net/2019/05/18/5cdeea9d6a21e40944.jpg"},"inLanguage":{"@type":"Language","alternateName":"zh-Hans"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://rainyblog.top/post/cf#561/"}}]</script></head>
 <body lang="zh-Hans">
 <is-d2a57d></is-d2a57d>
 <script src="/runtime.26209474bfa8dc87a77c.js"></script>
