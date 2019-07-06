@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,6 +13,13 @@
 <meta name="theme-color" content="#222">
 
 
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-bounce.min.css?v=1.0.2" rel="stylesheet">
 
 
 
@@ -55,6 +62,12 @@
   
 
   
+    
+      
+    
+
+    
+  
 
   
 
@@ -65,7 +78,7 @@
   
     
     
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.google.com/specimen/Tangerine/css?family=Lato:300,300italic,400,400italic,700,700italic|https://fonts.google.com/specimen/Spinnaker:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
   
 
 
@@ -113,8 +126,8 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always","offset":10,"offset_float":10,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: true,
@@ -170,7 +183,7 @@
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
+  <div class="site-meta custom-logo">
     
 
     <div class="custom-logo-site-title">
@@ -211,32 +224,22 @@
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
-            
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
-            
-            关于
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
           </a>
         </li>
       
@@ -251,20 +254,58 @@
         </li>
       
         
-        <li class="menu-item menu-item-sitemap">
-          <a href="/sitemap.xml" rel="section">
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
             
-            站点地图
+            关于
           </a>
         </li>
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
   
 </nav>
 
@@ -288,7 +329,7 @@
   
   
 
-  <article class="post post-type-post" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
@@ -310,13 +351,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">
-              
-              <a class="post-title-link post-title-link-external" target="_blank" href="/post/cpp1" itemprop="url">
-                C++ 学习笔记(一)
-                <i class="fa fa-external-link"></i>
-              </a>
-            </h2>
+          <h2 class="post-title" itemprop="name headline">C++ 学习笔记(一)</h2>
         
 
         <div class="post-meta">
@@ -363,6 +398,8 @@
           
 
           
+            
+          
 
           
           
@@ -387,27 +424,27 @@
 
       
         <p>[TOC]</p>
-<h3 id="变量的声明与定义">变量的声明与定义<a href="post/cpp1#变量的声明与定义"></a></h3><p>声明关键字 <strong>extern</strong> </p>
+<h3 id="变量的声明与定义"><a href="#变量的声明与定义" class="headerlink" title="变量的声明与定义"></a>变量的声明与定义</h3><p>声明关键字 <strong>extern</strong> </p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">extern</span> <span class="keyword">int</span> a; <span class="comment">//声明</span></span><br><span class="line"><span class="keyword">int</span> a; 	<span class="comment">//声明并定义</span></span><br><span class="line"><span class="keyword">extern</span> <span class="keyword">int</span> a = <span class="number">1</span>; <span class="comment">//定义</span></span><br></pre></td></tr></table></figure>
 
 <p><strong>变量可以被多次声明,仅可定义一次</strong></p>
 <p><strong>若想在多个文件中同时应用const 对象,需要在const前加extern</strong></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">extren <span class="keyword">const</span> <span class="keyword">int</span> a = <span class="number">100</span>;</span><br></pre></td></tr></table></figure>
 
-<h3 id="const-限定符">const 限定符<a href="post/cpp1#const-限定符"></a></h3><h4 id="对const-的引用-简称常量引用">对const 的引用(简称常量引用)<a href="post/cpp1#对const-的引用-简称常量引用"></a></h4><p>例:</p>
+<h3 id="const-限定符"><a href="#const-限定符" class="headerlink" title="const 限定符"></a>const 限定符</h3><h4 id="对const-的引用-简称常量引用"><a href="#对const-的引用-简称常量引用" class="headerlink" title="对const 的引用(简称常量引用)"></a>对const 的引用(简称常量引用)</h4><p>例:</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">42</span>;</span><br><span class="line">   <span class="keyword">const</span> <span class="keyword">int</span> &amp;r1 = i;</span><br><span class="line">   <span class="keyword">const</span> <span class="keyword">int</span> &amp;r2 = <span class="number">42</span>;</span><br><span class="line">   <span class="keyword">const</span> <span class="keyword">int</span> &amp;r3 = r1 * <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
 
 <p><strong>常量引用可以对非常量执行,但是无法修改引用值,也不能通过引用值修改常量.</strong></p>
-<h4 id="指向常量的指针">指向常量的指针<a href="post/cpp1#指向常量的指针"></a></h4><p>const 可以令指针指向常量或非常量.</p>
+<h4 id="指向常量的指针"><a href="#指向常量的指针" class="headerlink" title="指向常量的指针"></a>指向常量的指针</h4><p>const 可以令指针指向常量或非常量.</p>
 <p>不过指针不能修改所指对象的值.</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">	<span class="keyword">const</span> <span class="keyword">double</span> pi = <span class="number">3.14</span>;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">double</span> *cptr = &amp;pi;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%.2lf\n"</span>,*cptr);</span><br><span class="line">    <span class="keyword">double</span> dval = <span class="number">3.16</span>;</span><br><span class="line">    cptr = &amp;dval;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%.2lf\n"</span>,*cptr);</span><br><span class="line">output:</span><br><span class="line"><span class="number">3.14</span></span><br><span class="line"><span class="number">3.16</span></span><br></pre></td></tr></table></figure>
 
 <p><strong>所谓指向常量的指针,仅仅是指不能通过该指针改变常量的值,但是可以通过其他方式改变</strong></p>
-<h4 id="const指针">const指针<a href="post/cpp1#const指针"></a></h4><p><strong>即指针是对象,把指针本身定位常量</strong></p>
+<h4 id="const指针"><a href="#const指针" class="headerlink" title="const指针"></a>const指针</h4><p><strong>即指针是对象,把指针本身定位常量</strong></p>
 <p><strong>即指针本身指向不可更改,但可通过其改变其指向的非常量的值</strong></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> *<span class="keyword">const</span> pa = &amp;a;				<span class="comment">//常量指针</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> pi = <span class="number">3.14</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> *<span class="keyword">const</span> ppi = &amp;pi	<span class="comment">//指向常量的常量指针</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="顶层const">顶层const<a href="post/cpp1#顶层const"></a></h4><ul>
+<h4 id="顶层const"><a href="#顶层const" class="headerlink" title="顶层const"></a>顶层const</h4><ul>
 <li><p>顶层const表示指针<strong>本身</strong>是个常量,</p>
 </li>
 <li><p>而底层const表示指针<strong>所指对象</strong>是个常量.</p>
@@ -417,10 +454,10 @@
 
 <p>分别const是底层或顶层时,按定义区分即可.</p>
 <p><strong>在底层const对象的拷贝中,拷入与拷出必须拥有相同的底层const资格,或两者两者类型可以进行转换.</strong></p>
-<h4 id="常量表达式">常量表达式<a href="post/cpp1#常量表达式"></a></h4><p><strong>即值不会改变,且值在编译过程中就可得到</strong></p>
+<h4 id="常量表达式"><a href="#常量表达式" class="headerlink" title="常量表达式"></a>常量表达式</h4><p><strong>即值不会改变,且值在编译过程中就可得到</strong></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">例如 </span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mx = <span class="number">100</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mxx = mx + <span class="number">10</span>;</span><br><span class="line">而如下表达式就不是</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> x = get_size();	<span class="comment">//编译过程无法得到其值,须运行时确定</span></span><br><span class="line"><span class="keyword">int</span> y = <span class="number">10</span>;				<span class="comment">//值不确定</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="constexpr限定符">constexpr限定符<a href="post/cpp1#constexpr限定符"></a></h4><p><strong>将变量声明为constexpr类型,可由编译器来验证变量的值是否是个常量表达式.</strong></p>
+<h4 id="constexpr限定符"><a href="#constexpr限定符" class="headerlink" title="constexpr限定符"></a>constexpr限定符</h4><p><strong>将变量声明为constexpr类型,可由编译器来验证变量的值是否是个常量表达式.</strong></p>
 <p>且可用于声明函数,但此类函数须足够简单,能让编译器编译后即可得到结果.这样的函数,就可以去初始化constexpr变量</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">constexpr</span> <span class="keyword">int</span> mf = <span class="number">20</span>;</span><br><span class="line"><span class="keyword">constexpr</span> <span class="keyword">int</span> limit = mf + <span class="number">1</span>;</span><br><span class="line"><span class="keyword">constexpr</span> <span class="keyword">int</span> sz = size();	<span class="comment">//size() 为constexpr函数</span></span><br></pre></td></tr></table></figure>
 
@@ -499,6 +536,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -552,10 +593,10 @@
             
             
             <div class="site-state-item site-state-categories">
-              
+              <a href="/categories/index.html">
                 <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
-              
+              </a>
             </div>
           
 
@@ -563,10 +604,10 @@
             
             
             <div class="site-state-item site-state-tags">
-              
+              <a href="/tags/index.html">
                 <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">标签</span>
-              
+              </a>
             </div>
           
 
@@ -575,6 +616,35 @@
         
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/wannabea" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-https://github.com/wannabea"></i>
+                  
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="350663371@qq.com" target="_blank" title="E-Mail">
+                  
+                    <i class="fa fa-fw fa-350663371@qq.com"></i>
+                  
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/ji-chu-3-66/activities" target="_blank" title="ZhiHu">
+                  
+                    <i class="fa fa-fw fa-https://www.zhihu.com/people/ji-chu-3-66/activities"></i>
+                  
+                    
+                </a>
+              </span>
+            
           
         </div>
 
@@ -637,7 +707,7 @@
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
+    NexT.Pisces
   </a>
 </div>
 
@@ -676,6 +746,8 @@
   
 
 
+  
+
 
 
 
@@ -704,6 +776,9 @@
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
 
   
 
@@ -716,6 +791,13 @@
 
   
   
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
@@ -760,6 +842,19 @@
   
 
 
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.2"></script>
 
 
 

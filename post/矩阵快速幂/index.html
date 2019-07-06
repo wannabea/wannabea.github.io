@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,6 +13,13 @@
 <meta name="theme-color" content="#222">
 
 
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-bounce.min.css?v=1.0.2" rel="stylesheet">
 
 
 
@@ -55,6 +62,12 @@
   
 
   
+    
+      
+    
+
+    
+  
 
   
 
@@ -65,7 +78,7 @@
   
     
     
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.google.com/specimen/Tangerine/css?family=Lato:300,300italic,400,400italic,700,700italic|https://fonts.google.com/specimen/Spinnaker:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
   
 
 
@@ -115,8 +128,8 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always","offset":10,"offset_float":10,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: true,
@@ -172,7 +185,7 @@
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
+  <div class="site-meta custom-logo">
     
 
     <div class="custom-logo-site-title">
@@ -213,32 +226,22 @@
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
-            
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
-            
-            关于
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
           </a>
         </li>
       
@@ -253,20 +256,58 @@
         </li>
       
         
-        <li class="menu-item menu-item-sitemap">
-          <a href="/sitemap.xml" rel="section">
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
             
-            站点地图
+            关于
           </a>
         </li>
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
   
 </nav>
 
@@ -290,7 +331,7 @@
   
   
 
-  <article class="post post-type-post" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
@@ -312,13 +353,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">
-              
-              <a class="post-title-link post-title-link-external" target="_blank" href="/post/矩阵快速幂" itemprop="url">
-                矩阵快速幂
-                <i class="fa fa-external-link"></i>
-              </a>
-            </h2>
+          <h2 class="post-title" itemprop="name headline">矩阵快速幂</h2>
         
 
         <div class="post-meta">
@@ -365,6 +400,8 @@
           
 
           
+            
+          
 
           
           
@@ -394,7 +431,7 @@
 <p>矩阵的加法和数乘都很简单百度便知,乘法才是我们矩阵快速幂需要了解的,这里介绍一下前置知识矩阵乘法.</p>
 <p><strong>矩阵乘法</strong></p>
 <p>两个矩阵可以相乘的矩阵需满足的条件左矩阵的列数必须要与右矩阵的行数相同简记,乘法过程就是左矩阵的行中每一个数字乘以右矩阵列中的每一个数,乘法过程如下</p>
-<div class="article-img"><p><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a88a3a575025f8be866be951df7c18d614ebb14d" alt="Alt text" data-zoomable></p></div>
+<p><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a88a3a575025f8be866be951df7c18d614ebb14d" alt="Alt text"></p>
 <p>代码实现如下(结构体中的运算符重载):</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//方形矩阵.</span></span><br><span class="line">MAT <span class="keyword">operator</span>*(MAT p) &#123;</span><br><span class="line">        MAT res;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;M;i++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;M;j++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">0</span>;k&lt;M;k++)</span><br><span class="line">            res.a[i][j]=(res.a[i][j]+a[i][k]*p.a[k][j])%mod;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
@@ -478,6 +515,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -522,10 +563,10 @@
             
             
             <div class="site-state-item site-state-categories">
-              
+              <a href="/categories/index.html">
                 <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
-              
+              </a>
             </div>
           
 
@@ -533,10 +574,10 @@
             
             
             <div class="site-state-item site-state-tags">
-              
+              <a href="/tags/index.html">
                 <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">标签</span>
-              
+              </a>
             </div>
           
 
@@ -545,6 +586,35 @@
         
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/wannabea" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-https://github.com/wannabea"></i>
+                  
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="350663371@qq.com" target="_blank" title="E-Mail">
+                  
+                    <i class="fa fa-fw fa-350663371@qq.com"></i>
+                  
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/ji-chu-3-66/activities" target="_blank" title="ZhiHu">
+                  
+                    <i class="fa fa-fw fa-https://www.zhihu.com/people/ji-chu-3-66/activities"></i>
+                  
+                    
+                </a>
+              </span>
+            
           
         </div>
 
@@ -591,7 +661,7 @@
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
+    NexT.Pisces
   </a>
 </div>
 
@@ -630,6 +700,8 @@
   
 
 
+  
+
 
 
 
@@ -658,6 +730,9 @@
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
 
   
 
@@ -670,6 +745,13 @@
 
   
   
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
@@ -714,6 +796,19 @@
   
 
 
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.2"></script>
 
 
 

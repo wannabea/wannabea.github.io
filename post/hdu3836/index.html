@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,6 +13,13 @@
 <meta name="theme-color" content="#222">
 
 
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-bounce.min.css?v=1.0.2" rel="stylesheet">
 
 
 
@@ -55,6 +62,12 @@
   
 
   
+    
+      
+    
+
+    
+  
 
   
 
@@ -65,7 +78,7 @@
   
     
     
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.google.com/specimen/Tangerine/css?family=Lato:300,300italic,400,400italic,700,700italic|https://fonts.google.com/specimen/Spinnaker:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
   
 
 
@@ -113,8 +126,8 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always","offset":10,"offset_float":10,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: true,
@@ -170,7 +183,7 @@
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
+  <div class="site-meta custom-logo">
     
 
     <div class="custom-logo-site-title">
@@ -211,32 +224,22 @@
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
-            
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
-            
-            关于
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
           </a>
         </li>
       
@@ -251,20 +254,58 @@
         </li>
       
         
-        <li class="menu-item menu-item-sitemap">
-          <a href="/sitemap.xml" rel="section">
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
             
-            站点地图
+            关于
           </a>
         </li>
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
   
 </nav>
 
@@ -288,7 +329,7 @@
   
   
 
-  <article class="post post-type-post" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
@@ -310,13 +351,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">
-              
-              <a class="post-title-link post-title-link-external" target="_blank" href="/post/hdu3836" itemprop="url">
-                Hdu3836
-                <i class="fa fa-external-link"></i>
-              </a>
-            </h2>
+          <h2 class="post-title" itemprop="name headline">Hdu3836</h2>
         
 
         <div class="post-meta">
@@ -363,6 +398,8 @@
           
 
           
+            
+          
 
           
           
@@ -389,10 +426,10 @@
         <p><strong>题目链接:</strong><a href="http://acm.hdu.edu.cn/showproblem.php?pid=3836" target="_blank" rel="noopener">http://acm.hdu.edu.cn/showproblem.php?pid=3836</a></p>
 <p>tarjan强连通分量缩点入门题.</p>
 <p>最近想搞一搞图论吧..但是又菜的一批,网络流又搞不动,就只能玩玩最短路,强连通分量的水题这样子.就这么一道水题数组开小了不RE,TLE是怎么回事…害得我debug半小时心态爆炸.</p>
-<h4 id="题意">题意<a href="post/hdu3836#题意"></a></h4><p>证明两集合等价需要证明A是B子集和B是A子集,且性质可以传递,现在有n个子集,m个已知证明,求最少还需多少次证明得到所有集合均等价.</p>
-<h4 id="题解">题解<a href="post/hdu3836#题解"></a></h4><p>tarjan求强连通分量缩点,填边使余下的强连通点构成一个强连通图即可.</p>
+<h4 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h4><p>证明两集合等价需要证明A是B子集和B是A子集,且性质可以传递,现在有n个子集,m个已知证明,求最少还需多少次证明得到所有集合均等价.</p>
+<h4 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h4><p>tarjan求强连通分量缩点,填边使余下的强连通点构成一个强连通图即可.</p>
 <p>具体来说就是将每个集合看为一个圆点共n个,tarjan缩为cnt个方点.求所有方点中入度为0点记a个,出度为0点b个.需要添加的边就是max(a,b)个.</p>
-<h4 id="代码">代码<a href="post/hdu3836#代码"></a></h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// Problem : 3836 ( Equivalent Sets )     Judge Status : Accepted</span></span><br><span class="line"><span class="comment">// RunId : 29352864    Language : G++    Author : nicknameuser</span></span><br><span class="line"><span class="comment">// Code Render Status : Rendered By HDOJ G++ Code Render Version 0.01 Beta</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mem(a,b)  memset(a,b,sizeof(a))</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXN = <span class="number">20000</span> + <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Edge</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> to,next;</span><br><span class="line">&#125;edge[MAXN * <span class="number">3</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> Stack[MAXN],head[MAXN],dfn[MAXN],low[MAXN],Belong[MAXN];</span><br><span class="line"><span class="keyword">bool</span> InStack[MAXN],in[MAXN],out[MAXN];</span><br><span class="line"><span class="keyword">int</span> tim,tot,cnt,top;</span><br><span class="line"><span class="keyword">int</span> n,m;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span>		<span class="comment">//初始化</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    mem(Stack,<span class="number">0</span>);</span><br><span class="line">    mem(head,<span class="number">-1</span>);</span><br><span class="line">    mem(dfn,<span class="number">0</span>);</span><br><span class="line">    mem(low,<span class="number">0</span>);</span><br><span class="line">    mem(Belong,<span class="number">0</span>);</span><br><span class="line">    mem(in,<span class="number">0</span>);</span><br><span class="line">    mem(out,<span class="number">0</span>);</span><br><span class="line">    tim = tot = cnt = top = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">tarjan</span><span class="params">(<span class="keyword">int</span> u)</span>		<span class="comment">//缩点入Belong</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> v;</span><br><span class="line">    dfn[u] = low[u] = ++tim;</span><br><span class="line">    Stack[top++] = u;</span><br><span class="line">    InStack[u] = <span class="number">1</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = head[u];i != <span class="number">-1</span> ;i = edge[i].next)&#123;</span><br><span class="line">        v = edge[i].to;</span><br><span class="line">        <span class="keyword">if</span>(!dfn[v])&#123;    </span><br><span class="line">            tarjan(v);</span><br><span class="line">            low[u] = min(low[u],low[v]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(InStack[v])</span><br><span class="line">            low[u] = min(low[u],dfn[v]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(dfn[u] == low[u])&#123;</span><br><span class="line">        cnt++;</span><br><span class="line">        <span class="keyword">do</span>&#123;</span><br><span class="line">            v = Stack[--top];</span><br><span class="line">            InStack[v] = <span class="number">0</span>;</span><br><span class="line">            Belong[v] = cnt;</span><br><span class="line">        &#125;<span class="keyword">while</span>(u != v);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">addedge</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> v)</span>	<span class="comment">//加边函数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    edge[tot].to = v;</span><br><span class="line">    edge[tot].next = head[u];</span><br><span class="line">    head[u] = tot++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;n&gt;&gt;m)&#123;</span><br><span class="line">        init();</span><br><span class="line">        <span class="keyword">while</span>(m--)&#123;</span><br><span class="line">            <span class="keyword">int</span> u,v;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;u,&amp;v);</span><br><span class="line">            addedge(u,v);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span> ;i &lt;= n;++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(!dfn[i]) tarjan(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)&#123;		<span class="comment">//入度出度为零点的个数</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = head[i]; j != <span class="number">-1</span>; j = edge[j].next)&#123;</span><br><span class="line">                <span class="keyword">int</span> v=edge[j].to;</span><br><span class="line">                <span class="keyword">if</span> (Belong[v] != Belong[i])&#123;</span><br><span class="line">                    out[Belong[i]] = <span class="number">1</span>;</span><br><span class="line">                    in[Belong[v]] = <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(cnt == <span class="number">1</span>)&#123;	<span class="comment">//图为强连通图时,无需加边</span></span><br><span class="line">            <span class="built_in">puts</span>(<span class="string">"0"</span>);</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> a,b;</span><br><span class="line">        a = b = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= cnt;++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(!in[i]) a++;</span><br><span class="line">            <span class="keyword">if</span>(!out[i]) b++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,max(a,b));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// Problem : 3836 ( Equivalent Sets )     Judge Status : Accepted</span></span><br><span class="line"><span class="comment">// RunId : 29352864    Language : G++    Author : nicknameuser</span></span><br><span class="line"><span class="comment">// Code Render Status : Rendered By HDOJ G++ Code Render Version 0.01 Beta</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mem(a,b)  memset(a,b,sizeof(a))</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXN = <span class="number">20000</span> + <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Edge</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> to,next;</span><br><span class="line">&#125;edge[MAXN * <span class="number">3</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> Stack[MAXN],head[MAXN],dfn[MAXN],low[MAXN],Belong[MAXN];</span><br><span class="line"><span class="keyword">bool</span> InStack[MAXN],in[MAXN],out[MAXN];</span><br><span class="line"><span class="keyword">int</span> tim,tot,cnt,top;</span><br><span class="line"><span class="keyword">int</span> n,m;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span>		<span class="comment">//初始化</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    mem(Stack,<span class="number">0</span>);</span><br><span class="line">    mem(head,<span class="number">-1</span>);</span><br><span class="line">    mem(dfn,<span class="number">0</span>);</span><br><span class="line">    mem(low,<span class="number">0</span>);</span><br><span class="line">    mem(Belong,<span class="number">0</span>);</span><br><span class="line">    mem(in,<span class="number">0</span>);</span><br><span class="line">    mem(out,<span class="number">0</span>);</span><br><span class="line">    tim = tot = cnt = top = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">tarjan</span><span class="params">(<span class="keyword">int</span> u)</span>		<span class="comment">//缩点入Belong</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> v;</span><br><span class="line">    dfn[u] = low[u] = ++tim;</span><br><span class="line">    Stack[top++] = u;</span><br><span class="line">    InStack[u] = <span class="number">1</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = head[u];i != <span class="number">-1</span> ;i = edge[i].next)&#123;</span><br><span class="line">        v = edge[i].to;</span><br><span class="line">        <span class="keyword">if</span>(!dfn[v])&#123;    </span><br><span class="line">            tarjan(v);</span><br><span class="line">            low[u] = min(low[u],low[v]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(InStack[v])</span><br><span class="line">            low[u] = min(low[u],dfn[v]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(dfn[u] == low[u])&#123;</span><br><span class="line">        cnt++;</span><br><span class="line">        <span class="keyword">do</span>&#123;</span><br><span class="line">            v = Stack[--top];</span><br><span class="line">            InStack[v] = <span class="number">0</span>;</span><br><span class="line">            Belong[v] = cnt;</span><br><span class="line">        &#125;<span class="keyword">while</span>(u != v);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">addedge</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> v)</span>	<span class="comment">//加边函数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    edge[tot].to = v;</span><br><span class="line">    edge[tot].next = head[u];</span><br><span class="line">    head[u] = tot++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;n&gt;&gt;m)&#123;</span><br><span class="line">        init();</span><br><span class="line">        <span class="keyword">while</span>(m--)&#123;</span><br><span class="line">            <span class="keyword">int</span> u,v;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;u,&amp;v);</span><br><span class="line">            addedge(u,v);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span> ;i &lt;= n;++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(!dfn[i]) tarjan(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)&#123;		<span class="comment">//入度出度为零点的个数</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = head[i]; j != <span class="number">-1</span>; j = edge[j].next)&#123;</span><br><span class="line">                <span class="keyword">int</span> v=edge[j].to;</span><br><span class="line">                <span class="keyword">if</span> (Belong[v] != Belong[i])&#123;</span><br><span class="line">                    out[Belong[i]] = <span class="number">1</span>;</span><br><span class="line">                    in[Belong[v]] = <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(cnt == <span class="number">1</span>)&#123;	<span class="comment">//图为强连通图时,无需加边</span></span><br><span class="line">            <span class="built_in">puts</span>(<span class="string">"0"</span>);</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> a,b;</span><br><span class="line">        a = b = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= cnt;++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(!in[i]) a++;</span><br><span class="line">            <span class="keyword">if</span>(!out[i]) b++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,max(a,b));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>最近没心情写博客了…毕竟学期末实在太恐怖了,大雾,高数,高听,三门课正在教我做人,抽点时间做两道题,等全都考完把板子总结挂上吧…</p>
 
@@ -469,6 +506,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -522,10 +563,10 @@
             
             
             <div class="site-state-item site-state-categories">
-              
+              <a href="/categories/index.html">
                 <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
-              
+              </a>
             </div>
           
 
@@ -533,10 +574,10 @@
             
             
             <div class="site-state-item site-state-tags">
-              
+              <a href="/tags/index.html">
                 <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">标签</span>
-              
+              </a>
             </div>
           
 
@@ -545,6 +586,35 @@
         
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/wannabea" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-https://github.com/wannabea"></i>
+                  
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="350663371@qq.com" target="_blank" title="E-Mail">
+                  
+                    <i class="fa fa-fw fa-350663371@qq.com"></i>
+                  
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/ji-chu-3-66/activities" target="_blank" title="ZhiHu">
+                  
+                    <i class="fa fa-fw fa-https://www.zhihu.com/people/ji-chu-3-66/activities"></i>
+                  
+                    
+                </a>
+              </span>
+            
           
         </div>
 
@@ -607,7 +677,7 @@
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
+    NexT.Pisces
   </a>
 </div>
 
@@ -646,6 +716,8 @@
   
 
 
+  
+
 
 
 
@@ -674,6 +746,9 @@
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
 
   
 
@@ -686,6 +761,13 @@
 
   
   
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
@@ -730,6 +812,19 @@
   
 
 
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.2"></script>
 
 
 

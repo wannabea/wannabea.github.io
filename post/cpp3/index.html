@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,6 +13,13 @@
 <meta name="theme-color" content="#222">
 
 
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-bounce.min.css?v=1.0.2" rel="stylesheet">
 
 
 
@@ -55,6 +62,12 @@
   
 
   
+    
+      
+    
+
+    
+  
 
   
 
@@ -65,7 +78,7 @@
   
     
     
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.google.com/specimen/Tangerine/css?family=Lato:300,300italic,400,400italic,700,700italic|https://fonts.google.com/specimen/Spinnaker:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
   
 
 
@@ -113,8 +126,8 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always","offset":10,"offset_float":10,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: true,
@@ -170,7 +183,7 @@
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
+  <div class="site-meta custom-logo">
     
 
     <div class="custom-logo-site-title">
@@ -211,32 +224,22 @@
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
-            
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
-            
-            关于
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
           </a>
         </li>
       
@@ -251,20 +254,58 @@
         </li>
       
         
-        <li class="menu-item menu-item-sitemap">
-          <a href="/sitemap.xml" rel="section">
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
             
-            站点地图
+            关于
           </a>
         </li>
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
   
 </nav>
 
@@ -288,7 +329,7 @@
   
   
 
-  <article class="post post-type-post" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
@@ -310,13 +351,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">
-              
-              <a class="post-title-link post-title-link-external" target="_blank" href="/post/cpp3" itemprop="url">
-                C++ 学习笔记(三)
-                <i class="fa fa-external-link"></i>
-              </a>
-            </h2>
+          <h2 class="post-title" itemprop="name headline">C++ 学习笔记(三)</h2>
         
 
         <div class="post-meta">
@@ -363,6 +398,8 @@
           
 
           
+            
+          
 
           
           
@@ -389,23 +426,23 @@
         <p>考试周终于过去了😭然后现在懒散的一点不愿意学习可咋整..</p>
 <p>刷题的状态还有待恢复，先学学C++吧</p>
 <hr>
-<h3 id="范围for语句">范围for语句<a href="post/cpp3#范围for语句"></a></h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (declaration : expression)</span><br><span class="line">    statement</span><br></pre></td></tr></table></figure>
+<h3 id="范围for语句"><a href="#范围for语句" class="headerlink" title="范围for语句"></a>范围for语句</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (declaration : expression)</span><br><span class="line">    statement</span><br></pre></td></tr></table></figure>
 
 <p>expresstion是一个对象，表示一个序列</p>
 <p>declaration负责定义一个变量，用于访问序列中的基本元素</p>
-<h3 id="cctype头文件函数">cctype头文件函数<a href="post/cpp3#cctype头文件函数"></a></h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">isalnum</span>(c) 	<span class="comment">// c是字母或者数组时为真</span></span><br><span class="line"><span class="built_in">isalpha</span>(c)	<span class="comment">//c是字母</span></span><br><span class="line"><span class="built_in">iscntrl</span>(c)	<span class="comment">//c是控制字符</span></span><br><span class="line"><span class="built_in">isxdigit</span>(c)	<span class="comment">//c是16进制数字</span></span><br><span class="line"><span class="built_in">isdigit</span>(c)	<span class="comment">//c是数字</span></span><br><span class="line"><span class="built_in">isspace</span>(c)	<span class="comment">//c是空白（空格，制表符，回车符，换行符，进纸符(\f,\x0c,\cL )）</span></span><br><span class="line"><span class="built_in">isgraph</span>(c)	<span class="comment">//c不是空格但可以打印</span></span><br><span class="line"><span class="built_in">isupper</span>(c)</span><br><span class="line"><span class="built_in">islower</span>(c)</span><br></pre></td></tr></table></figure>
+<h3 id="cctype头文件函数"><a href="#cctype头文件函数" class="headerlink" title="cctype头文件函数"></a>cctype头文件函数</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">isalnum</span>(c) 	<span class="comment">// c是字母或者数组时为真</span></span><br><span class="line"><span class="built_in">isalpha</span>(c)	<span class="comment">//c是字母</span></span><br><span class="line"><span class="built_in">iscntrl</span>(c)	<span class="comment">//c是控制字符</span></span><br><span class="line"><span class="built_in">isxdigit</span>(c)	<span class="comment">//c是16进制数字</span></span><br><span class="line"><span class="built_in">isdigit</span>(c)	<span class="comment">//c是数字</span></span><br><span class="line"><span class="built_in">isspace</span>(c)	<span class="comment">//c是空白（空格，制表符，回车符，换行符，进纸符(\f,\x0c,\cL )）</span></span><br><span class="line"><span class="built_in">isgraph</span>(c)	<span class="comment">//c不是空格但可以打印</span></span><br><span class="line"><span class="built_in">isupper</span>(c)</span><br><span class="line"><span class="built_in">islower</span>(c)</span><br></pre></td></tr></table></figure>
 
-<h3 id="数组">数组<a href="post/cpp3#数组"></a></h3><p>使用数组下标时，通常使用<strong>size_t</strong>类型，即与机器相关足够大的无符号整形，存在<cstddef>中</cstddef></p>
+<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><p>使用数组下标时，通常使用<strong>size_t</strong>类型，即与机器相关足够大的无符号整形，存在<cstddef>中</cstddef></p>
 <p><strong>指针也是迭代器</strong></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">例如：</span><br><span class="line"><span class="keyword">int</span> a[<span class="number">10</span>]; <span class="comment">//定义数组 </span></span><br><span class="line"><span class="keyword">int</span> *s = &amp;a[<span class="number">0</span>];	<span class="comment">//定义头指针</span></span><br><span class="line"><span class="keyword">int</span> *t = &amp;a[<span class="number">10</span>];	<span class="comment">//定义尾后指针</span></span><br><span class="line"><span class="comment">//由于此用法极易出错，c++11增加标准库函数 begin(),end()</span></span><br><span class="line"><span class="keyword">int</span> *beg = begin(a);</span><br><span class="line"><span class="keyword">int</span> *last = end(a);</span><br></pre></td></tr></table></figure>
 
-<h3 id="string-的初始化">string 的初始化<a href="post/cpp3#string-的初始化"></a></h3><p>string允许使用空字符结束的字符数组来初始化string对象</p>
+<h3 id="string-的初始化"><a href="#string-的初始化" class="headerlink" title="string 的初始化"></a>string 的初始化</h3><p>string允许使用空字符结束的字符数组来初始化string对象</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">s</span><span class="params">(<span class="string">"hello world"</span>)</span></span>;</span><br></pre></td></tr></table></figure>
 
 <p>string 专门提供了一个名为c_str的成员函数，即返回c风格的字符串，即以空字符结束的字符数组的指针</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">char</span> *str = s.c_str();	<span class="comment">//将string转化为字符数组的指针类型</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="vector的数组初始化方法">vector的数组初始化方法<a href="post/cpp3#vector的数组初始化方法"></a></h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> int_arr[] = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>&#125;;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ivec(begin(int_arr),end(int_arr));	<span class="comment">//使用数组首指针与尾后指针初始化</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; subVec(int_arr+<span class="number">1</span>,int_arr+<span class="number">4</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="vector的数组初始化方法"><a href="#vector的数组初始化方法" class="headerlink" title="vector的数组初始化方法"></a>vector的数组初始化方法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> int_arr[] = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>&#125;;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ivec(begin(int_arr),end(int_arr));	<span class="comment">//使用数组首指针与尾后指针初始化</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; subVec(int_arr+<span class="number">1</span>,int_arr+<span class="number">4</span>);</span><br></pre></td></tr></table></figure>
 
 
       
@@ -473,6 +510,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -526,10 +567,10 @@
             
             
             <div class="site-state-item site-state-categories">
-              
+              <a href="/categories/index.html">
                 <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
-              
+              </a>
             </div>
           
 
@@ -537,10 +578,10 @@
             
             
             <div class="site-state-item site-state-tags">
-              
+              <a href="/tags/index.html">
                 <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">标签</span>
-              
+              </a>
             </div>
           
 
@@ -549,6 +590,35 @@
         
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/wannabea" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-https://github.com/wannabea"></i>
+                  
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="350663371@qq.com" target="_blank" title="E-Mail">
+                  
+                    <i class="fa fa-fw fa-350663371@qq.com"></i>
+                  
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/ji-chu-3-66/activities" target="_blank" title="ZhiHu">
+                  
+                    <i class="fa fa-fw fa-https://www.zhihu.com/people/ji-chu-3-66/activities"></i>
+                  
+                    
+                </a>
+              </span>
+            
           
         </div>
 
@@ -611,7 +681,7 @@
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
+    NexT.Pisces
   </a>
 </div>
 
@@ -650,6 +720,8 @@
   
 
 
+  
+
 
 
 
@@ -678,6 +750,9 @@
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
 
   
 
@@ -690,6 +765,13 @@
 
   
   
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
@@ -734,6 +816,19 @@
   
 
 
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.2"></script>
 
 
 
