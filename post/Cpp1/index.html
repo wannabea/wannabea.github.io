@@ -1,34 +1,779 @@
-<!doctype html>
-<html lang="zh-Hans">
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.8.0">
-<meta charset="utf-8">
-<title>C++ 学习笔记(一) - Rainy的小小窝🏡</title>
-<base href="/">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-<link rel="canonical" href="http://rainyblog.top/post/cpp1/">
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="C++,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2">
+
+
+
+
+
+
 <meta name="description" content="[TOC] 变量的声明与定义声明关键字 extern  123extern int a; //声明int a; 	//声明并定义extern int a = 1; //定义  变量可以被多次声明,仅可定义一次 若想在多个文件中同时应用const 对象,需要在const前加extern 1extren const int a = 100;  const 限定符对const 的引用(简称常量引用)例:">
 <meta name="keywords" content="C++">
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:title" content="C++ 学习笔记(一)">
 <meta property="og:url" content="http://rainyblog.top/post/cpp1/index.html">
 <meta property="og:site_name" content="Rainy的小小窝🏡">
 <meta property="og:description" content="[TOC] 变量的声明与定义声明关键字 extern  123extern int a; //声明int a; 	//声明并定义extern int a = 1; //定义  变量可以被多次声明,仅可定义一次 若想在多个文件中同时应用const 对象,需要在const前加extern 1extren const int a = 100;  const 限定符对const 的引用(简称常量引用)例:">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://i.loli.net/2019/05/18/5cdeea9d6a21e40944.jpg">
 <meta property="og:updated_time" content="2019-05-19T09:18:30.419Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++ 学习笔记(一)">
 <meta name="twitter:description" content="[TOC] 变量的声明与定义声明关键字 extern  123extern int a; //声明int a; 	//声明并定义extern int a = 1; //定义  变量可以被多次声明,仅可定义一次 若想在多个文件中同时应用const 对象,需要在const前加extern 1extren const int a = 100;  const 限定符对const 的引用(简称常量引用)例:">
-<meta name="twitter:image" content="https://i.loli.net/2019/05/18/5cdeea9d6a21e40944.jpg">
-<link rel="stylesheet" href="//unpkg.com/hexo-theme-inside@2.0.0/source/fonts.b9b22ef890c930ac7a13.css">
-<link rel="stylesheet" href="/styles.cb7200f652beedaca38a.css">
-<link rel="stylesheet" href="/theme.59b7fb67f9ff94b82f9c.css">
-<script src="/config.d121f849117f536e7c44.js"></script>
-<script type="application/ld+json">[{"@context":"http://schema.org","@type":"WebSite","publisher":{"@type":"Person","name":"Rainy","description":"沉下心来写点东西.","image":"https://i.loli.net/2019/05/18/5cdeea9d6a21e40944.jpg"},"url":"http://rainyblog.top","image":"https://i.loli.net/2019/05/18/5cdeea9d6a21e40944.jpg","description":null,"author":{"@type":"Person","name":"Rainy","description":"沉下心来写点东西.","image":"https://i.loli.net/2019/05/18/5cdeea9d6a21e40944.jpg"},"inLanguage":{"@type":"Language","alternateName":"zh-Hans"}},{"@context":"http://schema.org","@type":"Article","articleSection":"C++","url":"http://rainyblog.top/post/cpp1/","headline":"C++ 学习笔记(一)","image":"https://i.loli.net/2019/05/18/5cdeea9d6a21e40944.jpg","datePublished":"2019-05-23T15:54:26.358Z","dateModified":"2019-05-19T09:18:30.419Z","keywords":"C++","description":null,"publisher":{"@type":"Organization","name":"Rainy的小小窝🏡","logo":{"@type":"ImageObject","url":"https://i.loli.net/2019/05/18/5cdeea9d6a21e40944.jpg"}},"author":{"@type":"Person","name":"Rainy","description":"沉下心来写点东西.","image":"https://i.loli.net/2019/05/18/5cdeea9d6a21e40944.jpg"},"inLanguage":{"@type":"Language","alternateName":"zh-Hans"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://rainyblog.top/post/cpp1/"}}]</script></head>
-<body lang="zh-Hans">
-<is-d2a57d></is-d2a57d>
-<script src="/runtime.26209474bfa8dc87a77c.js"></script>
-<script src="/polyfills.30f16c55deb40b06e14d.js"></script>
-<script src="/main.cb65816757bc3c87eabe.zh-Hans.js"></script></body>
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://rainyblog.top/post/cpp1/">
+
+
+
+
+
+  <title>C++ 学习笔记(一) | Rainy的小小窝🏡</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Rainy的小小窝🏡</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">温暖的写代码😉</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>
+            
+            站点地图
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-post" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://rainyblog.top/post/cpp1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rainy">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rainy的小小窝🏡">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+              
+              <a class="post-title-link post-title-link-external" target="_blank" href="/post/cpp1" itemprop="url">
+                C++ 学习笔记(一)
+                <i class="fa fa-external-link"></i>
+              </a>
+            </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-23T23:54:26+08:00">
+                2019-05-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C++</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>[TOC]</p>
+<h3 id="变量的声明与定义">变量的声明与定义<a href="post/cpp1#变量的声明与定义"></a></h3><p>声明关键字 <strong>extern</strong> </p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">extern</span> <span class="keyword">int</span> a; <span class="comment">//声明</span></span><br><span class="line"><span class="keyword">int</span> a; 	<span class="comment">//声明并定义</span></span><br><span class="line"><span class="keyword">extern</span> <span class="keyword">int</span> a = <span class="number">1</span>; <span class="comment">//定义</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>变量可以被多次声明,仅可定义一次</strong></p>
+<p><strong>若想在多个文件中同时应用const 对象,需要在const前加extern</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">extren <span class="keyword">const</span> <span class="keyword">int</span> a = <span class="number">100</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="const-限定符">const 限定符<a href="post/cpp1#const-限定符"></a></h3><h4 id="对const-的引用-简称常量引用">对const 的引用(简称常量引用)<a href="post/cpp1#对const-的引用-简称常量引用"></a></h4><p>例:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">42</span>;</span><br><span class="line">   <span class="keyword">const</span> <span class="keyword">int</span> &amp;r1 = i;</span><br><span class="line">   <span class="keyword">const</span> <span class="keyword">int</span> &amp;r2 = <span class="number">42</span>;</span><br><span class="line">   <span class="keyword">const</span> <span class="keyword">int</span> &amp;r3 = r1 * <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>常量引用可以对非常量执行,但是无法修改引用值,也不能通过引用值修改常量.</strong></p>
+<h4 id="指向常量的指针">指向常量的指针<a href="post/cpp1#指向常量的指针"></a></h4><p>const 可以令指针指向常量或非常量.</p>
+<p>不过指针不能修改所指对象的值.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">	<span class="keyword">const</span> <span class="keyword">double</span> pi = <span class="number">3.14</span>;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">double</span> *cptr = &amp;pi;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%.2lf\n"</span>,*cptr);</span><br><span class="line">    <span class="keyword">double</span> dval = <span class="number">3.16</span>;</span><br><span class="line">    cptr = &amp;dval;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%.2lf\n"</span>,*cptr);</span><br><span class="line">output:</span><br><span class="line"><span class="number">3.14</span></span><br><span class="line"><span class="number">3.16</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>所谓指向常量的指针,仅仅是指不能通过该指针改变常量的值,但是可以通过其他方式改变</strong></p>
+<h4 id="const指针">const指针<a href="post/cpp1#const指针"></a></h4><p><strong>即指针是对象,把指针本身定位常量</strong></p>
+<p><strong>即指针本身指向不可更改,但可通过其改变其指向的非常量的值</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> *<span class="keyword">const</span> pa = &amp;a;				<span class="comment">//常量指针</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> pi = <span class="number">3.14</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> *<span class="keyword">const</span> ppi = &amp;pi	<span class="comment">//指向常量的常量指针</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="顶层const">顶层const<a href="post/cpp1#顶层const"></a></h4><ul>
+<li><p>顶层const表示指针<strong>本身</strong>是个常量,</p>
+</li>
+<li><p>而底层const表示指针<strong>所指对象</strong>是个常量.</p>
+</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">目前所见有</span><br><span class="line"><span class="keyword">int</span> *<span class="keyword">const</span> p = &amp;i; 		<span class="comment">//顶层const</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> pi = <span class="number">3.14</span>;	<span class="comment">//顶层const</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> *ppi = &amp;pi;<span class="comment">//底层const</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> &amp;r = i;		<span class="comment">//用于声明引用的const均为底层const</span></span><br></pre></td></tr></table></figure>
+
+<p>分别const是底层或顶层时,按定义区分即可.</p>
+<p><strong>在底层const对象的拷贝中,拷入与拷出必须拥有相同的底层const资格,或两者两者类型可以进行转换.</strong></p>
+<h4 id="常量表达式">常量表达式<a href="post/cpp1#常量表达式"></a></h4><p><strong>即值不会改变,且值在编译过程中就可得到</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">例如 </span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mx = <span class="number">100</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mxx = mx + <span class="number">10</span>;</span><br><span class="line">而如下表达式就不是</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> x = get_size();	<span class="comment">//编译过程无法得到其值,须运行时确定</span></span><br><span class="line"><span class="keyword">int</span> y = <span class="number">10</span>;				<span class="comment">//值不确定</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="constexpr限定符">constexpr限定符<a href="post/cpp1#constexpr限定符"></a></h4><p><strong>将变量声明为constexpr类型,可由编译器来验证变量的值是否是个常量表达式.</strong></p>
+<p>且可用于声明函数,但此类函数须足够简单,能让编译器编译后即可得到结果.这样的函数,就可以去初始化constexpr变量</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">constexpr</span> <span class="keyword">int</span> mf = <span class="number">20</span>;</span><br><span class="line"><span class="keyword">constexpr</span> <span class="keyword">int</span> limit = mf + <span class="number">1</span>;</span><br><span class="line"><span class="keyword">constexpr</span> <span class="keyword">int</span> sz = size();	<span class="comment">//size() 为constexpr函数</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>constexpr 定义的指针和引用初始值受到严格限制.</strong></p>
+<p><u>即定义在任何函数中的变量均不可被constexpr修饰,因为函数体内的变量定义一般并不会存放在固定地址.</u></p>
+<p><strong>注意: 若constexpr定义中存在指针,则此指针为常量指针,即与其指向的对象无关.</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> *p = &amp;i;	<span class="comment">//指向常量的指针</span></span><br><span class="line"><span class="keyword">constexpr</span> <span class="keyword">int</span> *q = &amp;j; <span class="comment">//常量指针</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/C/" rel="tag"># C++</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/post/矩阵快速幂/" rel="next" title="矩阵快速幂">
+                <i class="fa fa-chevron-left"></i> 矩阵快速幂
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/post/cpp2/" rel="prev" title="C++ 学习笔记(二)">
+                C++ 学习笔记(二) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="Rainy">
+          <p class="site-author-name" itemprop="name">Rainy</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#变量的声明与定义"><span class="nav-number">1.</span> <span class="nav-text">变量的声明与定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#const-限定符"><span class="nav-number">2.</span> <span class="nav-text">const 限定符</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#对const-的引用-简称常量引用"><span class="nav-number">2.1.</span> <span class="nav-text">对const 的引用(简称常量引用)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指向常量的指针"><span class="nav-number">2.2.</span> <span class="nav-text">指向常量的指针</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#const指针"><span class="nav-number">2.3.</span> <span class="nav-text">const指针</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#顶层const"><span class="nav-number">2.4.</span> <span class="nav-text">顶层const</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常量表达式"><span class="nav-number">2.5.</span> <span class="nav-text">常量表达式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#constexpr限定符"><span class="nav-number">2.6.</span> <span class="nav-text">constexpr限定符</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Rainy</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
 </html>
