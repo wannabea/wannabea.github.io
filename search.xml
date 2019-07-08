@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[各类排序代码及复杂度]]></title>
+    <url>%2Fpost%2Fsort%2F</url>
+    <content type="text"><![CDATA[下午就要考数据结构了呀有点慌….所以看看排序抱抱佛脚..于是…写了堆排序就停不下来了呢… 所以就把上课老师讲的排序都写了一遍..交题都过了可是复杂度可能会有些小问题.. 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116//-------------------------堆排序------------------------////时间复杂度 平均 O(nlogn) 最坏 O(nlogn)//空间复杂度 O(1)#include &lt;bits/stdc++.h&gt;using namespace std;int a[1000006],n;void PercDown(int a[],int i,int n) //O(logn)&#123; if(2 * i + 1 &gt;= n) return ; else if(2 * i + 2 &gt;= n)&#123; if(a[i * 2 + 1] &gt; a[i]) swap(a[i* 2 + 1] , a[i]); &#125; else&#123; int p = i * 2 + 1,q = i * 2 + 2; if(a[p] &gt; a[q]) swap(p,q); if(a[i] &lt; a[q])&#123; swap(a[q],a[i]); PercDown(a,q,n); &#125; &#125;&#125;//(i + 1) * 2 (+ 1) - 1 = 2 * i + 1 || 2 * i + 2;void HeapSort(int a[],int n)&#123; for(int i = n/2;i &gt;= 0;--i)&#123; //建堆（大根堆） PercDown(a,i,n); &#125; for(int i = n-1;i &gt;= 0;--i)&#123; //更新大根堆 swap(a[0],a[i]); PercDown(a,0,i); &#125;&#125;//-------------------------快速排序------------------------////时间复杂度 平均 O(nlogn) 最坏 O(n^&#123;2&#125;)//空间复杂度 O(logn)#include &lt;bits/stdc++.h&gt;using namespace std;int a[1000006];void QuickSort(int a[],int l,int r) &#123; int i,j,p; p = a[l]; i = l,j = r; while(i &lt; j)&#123; while(i &lt; j &amp;&amp; a[j] &gt;= p)&#123; //先移动右指针寻找大于哨兵的值 j--; &#125; if(i != j)&#123; a[i] = a[j]; &#125; else break; while(i &lt; j &amp;&amp; a[i] &lt;= p)&#123; //后移动左指针寻找小于哨兵的值 i++; &#125; if(i != j)&#123; a[j] = a[i]; &#125; else break; &#125; a[j] = p; //指针相碰，指针位置就是哨兵的最终位置 if(l &lt; j) QuickSort(a,l,j); if(j+1 &lt; r)QuickSort(a,j+1,r);&#125;//-----------------------直接插入排序----------------------////时间复杂度 平均 O(n^&#123;2&#125;) 最坏 O(n^&#123;2&#125;)//空间复杂度 O(1)#include &lt;bits/stdc++.h&gt;using namespace std;int a[1000006];void InsertSort(int a[],int n)&#123; for(int i = 1;i &lt; n;++i)&#123; int p = a[i]; for(int j = i;j &gt;= 0;--j)&#123; if(a[j-1] &gt; p) a[j] = a[j-1]; else&#123; a[j] = p; break; &#125; &#125; &#125;&#125;//-------------------------希尔排序------------------------////时间复杂度 平均 O(nlogn) 最坏 O(n^&#123;2&#125;)//空间复杂度 O(1)#include &lt;bits/stdc++.h&gt;using namespace std;int a[1000006];void ShellSort(int a[],int n)&#123; for(int d = n/2;d &gt; 0;d/=2)&#123; //以n/2为增量序列 for(int p = d;p &lt; n;++p)&#123; int tmp = a[p]; int i = p; for(i = p;i &gt;= d &amp;&amp; a[i-d] &gt; tmp; i-=d) a[i] = a[i-d]; a[i] = tmp; &#125; &#125;&#125;]]></content>
+      <categories>
+        <category>ICPC</category>
+      </categories>
+      <tags>
+        <tag>排序</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Cpp4]]></title>
     <url>%2Fpost%2Fcpp4%2F</url>
     <content type="text"></content>

@@ -97,7 +97,7 @@
   <meta name="description" content="世之奇伟、瑰怪、非常之观，常在于险远，而人之所罕至焉，故非有志者不能至也。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Rainy的小小窝🏡">
-<meta property="og:url" content="http://rainyblog.top/tags/C/index.html">
+<meta property="og:url" content="http://rainyblog.top/page/2/index.html">
 <meta property="og:site_name" content="Rainy的小小窝🏡">
 <meta property="og:description" content="世之奇伟、瑰怪、非常之观，常在于险远，而人之所罕至焉，故非有志者不能至也。">
 <meta property="og:locale" content="zh-CN">
@@ -111,7 +111,7 @@
 
   
   
-  <link rel="canonical" href="http://rainyblog.top/tags/C/">
+  <link rel="canonical" href="http://rainyblog.top/page/2/">
 
 
 
@@ -121,7 +121,7 @@
   };
 </script>
 
-  <title>标签: C++ | Rainy的小小窝🏡</title>
+  <title>Rainy的小小窝🏡</title>
   
 
 
@@ -169,7 +169,8 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left 
+  page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -259,7 +260,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
 
     
     
@@ -368,133 +369,207 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
 
   
   
   
-  <div class="post-block tag">
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>C++<small>标签</small>
-        </h1>
-      </div>
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://rainyblog.top/post/一维树状数组详解/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rainy">
+      <meta itemprop="description" content="世之奇伟、瑰怪、非常之观，常在于险远，而人之所罕至焉，故非有志者不能至也。">
+      <meta itemprop="image" content="https://i.loli.net/2019/07/07/5d213be82686d64168.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rainy的小小窝🏡">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/post/一维树状数组详解/" class="post-title-link" itemprop="url">一维树状数组详解</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-18 11:00:25" itemprop="dateCreated datePublished" datetime="2019-05-18T11:00:25+08:00">2019-05-18</time>
+            </span>
+          
+
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ICPC/" itemprop="url" rel="index"><span itemprop="name">ICPC</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/post/一维树状数组详解/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="post/一维树状数组详解/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
 
       
         
+          
+            <p>
+              树状数组的简洁易用简直是比赛神器..而且理解也不难   我这样的菜鸡都学会了
+那么就写一篇教程权当总结吧..以免日后忘了..
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+要了解树状数组,首先需要了解它是用来做什么的.那么:
+树状数组的问题模型
+单点维护,区间查询(PUIQ问题)
 
-      <h2 class="post-title">
+区间维护,单点查询(IUPQ问题)
+
+求逆序对问题
+
+树状数
+              ...
+            </p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/post/一维树状数组详解/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
-          <a class="post-title-link" href="/post/cpp3/" itemprop="url">
-            
-              <span itemprop="name">C++ 学习笔记(三)</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-06T12:34:32+08:00" content="2019-07-06">
-          07-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/post/cpp2/" itemprop="url">
-            
-              <span itemprop="name">C++ 学习笔记(二)</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-05-23T23:54:59+08:00" content="2019-05-23">
-          05-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/post/cpp1/" itemprop="url">
-            
-              <span itemprop="name">C++ 学习笔记(一)</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-05-23T23:54:26+08:00" content="2019-05-23">
-          05-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
   </div>
   
   
   
+  </article>
+
+
+    
+  </section>
 
   
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
 
 
 
@@ -1140,6 +1215,10 @@
   
 
   
+  
+    
+      
+    
   
 
   
