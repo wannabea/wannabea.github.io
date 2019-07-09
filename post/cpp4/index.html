@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="Rainy的小小窝🏡">
 <meta property="og:description" content="这次看的东西有点多..哦不..是看的有点随便..翻一翻就过去了… 感觉有点基础..?(怕不是自己太菜) 所以随便记一下好了.. 命名的强制类型转换123//强制类型转换的形式cast-name&amp;lt;type&amp;gt;(expression);	//type 为目标类型，expression是要转换的值//cast-name则为&amp;#123;static_cast,dynamic_cast,const">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-09T07:58:36.722Z">
+<meta property="og:updated_time" content="2019-07-09T08:58:58.007Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++ 学习笔记(四)">
 <meta name="twitter:description" content="这次看的东西有点多..哦不..是看的有点随便..翻一翻就过去了… 感觉有点基础..?(怕不是自己太菜) 所以随便记一下好了.. 命名的强制类型转换123//强制类型转换的形式cast-name&amp;lt;type&amp;gt;(expression);	//type 为目标类型，expression是要转换的值//cast-name则为&amp;#123;static_cast,dynamic_cast,const">
@@ -271,6 +271,22 @@
     
 
     <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-swpuoj">
+
+    
+    
+      
+    
+
+    
+
+    <a href="http://118.89.134.177/" rel="noopener" target="_blank"><i class="menu-item-icon fa fa-fw fa-battery"></i> <br>swpuoj</a>
 
   </li>
         
@@ -764,11 +780,15 @@
 
 <p>如上就是一个统计函数被调用多少次的函数，用到static 静态变量</p>
 <h3 id="const形参与实参"><a href="#const形参与实参" class="headerlink" title="const形参与实参"></a>const形参与实参</h3><p><strong>当用实参初始化形参时，会忽略掉顶层const</strong></p>
-<p><strong>函数参数定义时应尽量使用常量引用</strong>，即：<figure class="highlight plain"><figcaption><span>func(const int &n)``` </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">使用普通引用是一种较为常见的错误：令使用者认为可以改变其实参的值，而且大大限制了参数范围（无法传入常量）</span><br><span class="line"></span><br><span class="line">**（当然若函数体需要改变其实参的值，则必须使用普通引用）**</span><br><span class="line"></span><br><span class="line">#### 数组形参</span><br><span class="line"></span><br><span class="line">可以利用引用显式的传递一个固定大小的数组形参</span><br><span class="line"></span><br><span class="line">```cpp</span><br><span class="line">void func(int (&amp;arr)[10]);	//传递一个大小为10的int数组</span><br></pre></td></tr></table></figure></p>
+<p><strong>函数参数定义时应尽量使用常量引用</strong>，即：</p>
+<figure class="highlight plain"><figcaption><span>func(const int &n)``` </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">使用普通引用是一种较为常见的错误：令使用者认为可以改变其实参的值，而且大大限制了参数范围（无法传入常量）</span><br><span class="line"></span><br><span class="line">**（当然若函数体需要改变其实参的值，则必须使用普通引用）**</span><br><span class="line"></span><br><span class="line">#### 数组形参</span><br><span class="line"></span><br><span class="line">可以利用引用显式的传递一个固定大小的数组形参</span><br><span class="line"></span><br><span class="line">```cpp</span><br><span class="line">void func(int (&amp;arr)[10]);	//传递一个大小为10的int数组</span><br></pre></td></tr></table></figure>
+
 <p>由于c++中没有真正的多维数组，所以声明二维数组时，可以声明为指向数组的指针</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">func</span><span class="params">(<span class="keyword">int</span> (*arr)[<span class="number">10</span>])</span></span>;	<span class="comment">//传递一个指向大小为10的数组的指针</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">func</span><span class="params">(<span class="keyword">int</span> arr[][<span class="number">10</span>])</span></span>; 	<span class="comment">//等价定义</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="main-函数的传参"><a href="#main-函数的传参" class="headerlink" title="main()函数的传参"></a>main()函数的传参</h3><p>有些情况下我们需要给main传参而main的参数为<figure class="highlight plain"><figcaption><span>argc, char **argv);``` </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">传参方法：可以通过运行可执行文件时在命令行后添加字符串实现（传入参数为argv，而argc为argv中字符串的个数）</span><br><span class="line"></span><br><span class="line">``` </span><br><span class="line">$  g++ a.cpp -o a</span><br><span class="line">$  ./a a b c d</span><br></pre></td></tr></table></figure></p>
+<h3 id="main-函数的传参"><a href="#main-函数的传参" class="headerlink" title="main()函数的传参"></a>main()函数的传参</h3><p>有些情况下我们需要给main传参而main的参数为</p>
+<figure class="highlight plain"><figcaption><span>argc, char **argv);``` </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">传参方法：可以通过运行可执行文件时在命令行后添加字符串实现（传入参数为argv，而argc为argv中字符串的个数）</span><br><span class="line"></span><br><span class="line">``` </span><br><span class="line">$  g++ a.cpp -o a</span><br><span class="line">$  ./a a b c d</span><br></pre></td></tr></table></figure>
+
 <h3 id="initializer-list类型"><a href="#initializer-list类型" class="headerlink" title="initializer_list类型"></a>initializer_list类型</h3><p>当函数实参数量未知，但类型相同，可使用initializer来传参，但传参需要加上<strong>{}</strong></p>
 <p>initializer_list与其他容器不同的是，它内部元素永远是常量值，不能被改变。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//标准库提供的操作</span></span><br><span class="line"><span class="built_in">initializer_list</span>&lt;T&gt; lst;</span><br><span class="line"><span class="built_in">initializer_list</span>&lt;T&gt; lst&#123;a,b,c...&#125;;</span><br><span class="line">lst2(lst);</span><br><span class="line">lst.size();</span><br><span class="line">lst.begin();</span><br><span class="line">lst.end();	<span class="comment">//即可以使用范围for循环</span></span><br></pre></td></tr></table></figure>
@@ -1004,6 +1024,15 @@
                     
                   
                   <a href="mailto:wk.181518@gmail.com" title="E-Mail &rarr; mailto:wk.181518@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="http://tool.gljlw.com/qq/?qq=350663371" title="QQ &rarr; http://tool.gljlw.com/qq/?qq=350663371" rel="noopener" target="_blank"><i class="fa fa-fw fa-qq"></i></a>
                 </span>
               
             </div>
