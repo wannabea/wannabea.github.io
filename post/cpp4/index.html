@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="Rainy的小小窝🏡">
 <meta property="og:description" content="这次看的东西有点多..哦不..是看的有点随便..翻一翻就过去了… 感觉有点基础..?(怕不是自己太菜) 所以随便记一下好了.. 命名的强制类型转换123//强制类型转换的形式cast-name&amp;lt;type&amp;gt;(expression);	//type 为目标类型，expression是要转换的值//cast-name则为&amp;#123;static_cast,dynamic_cast,const">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-09T09:05:05.881Z">
+<meta property="og:updated_time" content="2019-07-09T09:14:15.804Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++ 学习笔记(四)">
 <meta name="twitter:description" content="这次看的东西有点多..哦不..是看的有点随便..翻一翻就过去了… 感觉有点基础..?(怕不是自己太菜) 所以随便记一下好了.. 命名的强制类型转换123//强制类型转换的形式cast-name&amp;lt;type&amp;gt;(expression);	//type 为目标类型，expression是要转换的值//cast-name则为&amp;#123;static_cast,dynamic_cast,const">
@@ -771,7 +771,10 @@
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">func</span><span class="params">(<span class="keyword">int</span> (*arr)[<span class="number">10</span>])</span></span>;	<span class="comment">//传递一个指向大小为10的数组的指针</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">func</span><span class="params">(<span class="keyword">int</span> arr[][<span class="number">10</span>])</span></span>; 	<span class="comment">//等价定义</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="main-函数的传参"><a href="#main-函数的传参" class="headerlink" title="main()函数的传参"></a>main()函数的传参</h3><p>有些情况下我们需要给main传参而main的参数为</p>
-<figure class="highlight plain"><figcaption><span>argc, char **argv);``` </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">传参方法：可以通过运行可执行文件时在命令行后添加字符串实现（传入参数为argv，而argc为argv中字符串的个数）</span><br><span class="line"></span><br><span class="line">``` </span><br><span class="line">$  g++ a.cpp -o a</span><br><span class="line">$  ./a a b c d</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">main(int argc, char **argv);</span><br></pre></td></tr></table></figure>
+
+<p>传参方法：可以通过运行可执行文件时在命令行后添加字符串实现（传入参数为argv，而argc为argv中字符串的个数）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$  g++ a.cpp -o a</span><br><span class="line">$  ./a a b c d</span><br></pre></td></tr></table></figure>
 
 <h3 id="initializer-list类型"><a href="#initializer-list类型" class="headerlink" title="initializer_list类型"></a>initializer_list类型</h3><p>当函数实参数量未知，但类型相同，可使用initializer来传参，但传参需要加上<strong>{}</strong></p>
 <p>initializer_list与其他容器不同的是，它内部元素永远是常量值，不能被改变。</p>
