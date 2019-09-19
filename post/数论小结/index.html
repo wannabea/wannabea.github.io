@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html  lang="zh">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 3.8.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>数论学习小结 - Rainy&#39;s Blog</title>
+
+
+    <meta name="description" content="最近做题做到了两道数论…于是就翻了翻以前学过的知识点..发现…我忘光了… 所以这次写篇博客尝试着捡一捡.. 希望不要再忘了…">
+<meta name="keywords" content="康托展开,数论,gcd&amp;exgcd,crt&amp;excrt,欧拉函数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数论学习小结">
+<meta property="og:url" content="http://rainyblog.top/post/数论小结/index.html">
+<meta property="og:site_name" content="Rainy&#39;s Blog">
+<meta property="og:description" content="最近做题做到了两道数论…于是就翻了翻以前学过的知识点..发现…我忘光了… 所以这次写篇博客尝试着捡一捡.. 希望不要再忘了…">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://rainyblog.top/images/og_image.png">
+<meta property="og:updated_time" content="2019-09-19T12:59:12.642Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数论学习小结">
+<meta name="twitter:description" content="最近做题做到了两道数论…于是就翻了翻以前学过的知识点..发现…我忘光了… 所以这次写篇博客尝试着捡一捡.. 希望不要再忘了…">
+<meta name="twitter:image" content="http://rainyblog.top/images/og_image.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.svg" alt="数论学习小结" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">Home</a>
+                
+                <a class="navbar-item"
+                href="/archives">Archives</a>
+                
+                <a class="navbar-item"
+                href="/categories">Categories</a>
+                
+                <a class="navbar-item"
+                href="/tags">Tags</a>
+                
+                <a class="navbar-item"
+                href="/about">About</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-09-19T08:49:41.000Z">2019-09-19</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/学习总结/">学习总结</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    13 分钟 读完 (大约 1998 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                数论学习小结
+            
+        </h1>
+        <div class="content">
+            <p>最近做题做到了两道数论…于是就翻了翻以前学过的知识点..发现…我忘光了…</p>
+<p>所以这次写篇博客尝试着捡一捡.. 希望不要再忘了…</p>
+<a id="more"></a> >>
+
+<h3 id="gcd-amp-exgcd"><a href="#gcd-amp-exgcd" class="headerlink" title="gcd &amp; exgcd"></a>gcd &amp; exgcd</h3><p>gcd<del>又名共产党算法</del>是求解最大公因数的算法，算法原理是初高中就学习过的辗转相除法。</p>
+<p>所以..直接放代码：</p>
+<figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">gcd</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a,<span class="hljs-keyword">int</span> b)</span></span></span><br><span class="line"><span class="hljs-function"></span>&#123;<span class="hljs-keyword">return</span> b == <span class="hljs-number">0</span> ? a : gcd(b,a%b);&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>辗转相除法的时间复杂度为O(logn)</strong></p>
+<p>exgcd是求形如$ax+by=gcd(a,b) $类型多解问题的方法，使用它可以得到x,y的最小解</p>
+<p>下面展开证明：</p>
+<p>首先根据辗转相除法我们知道<br>$$<br>gcd(a,b) = gcd(b,a\bmod b)<br>$$<br>所以<br>$$<br>ax_1+by_1=bx_2+(a \bmod b)y_2<br>$$<br>我们又知道<br>$$<br>a \bmod b = a - \lfloor\frac{a}{b}\rfloor \times b<br>$$<br>所以上式可以化为<br>$$<br>ax_1+by_1=bx_2+( a - \lfloor\frac{a}{b}\rfloor \times b)y_2<br>$$<br>展开得到<br>$$<br>ax_{1} + by_{1} = ay_{2} + bx_{2} - \lfloor \frac{a}b \rfloor \times by_{2}<br>$$<br>整理得到<br>$$<br>ax_1 + by_1 = ay_2+b(x2-\lfloor \frac{a}b \rfloor \times y_2)<br>$$<br>可以看出<br>$$<br>\begin{equation}<br>{<br>x1 = y2\<br>y1 =x2-\lfloor \frac{a}b \rfloor \times y_2<br>}</p>
+<p>\end{equation}<br>$$<br>这样，我们找到了$x_1,x_2,y_1,y_2$之间的关系,也就是$ax_1+by_1=bx_2+(a \bmod b)y_2$的两组解之间的关系，但是我们并不知道他们之间的任何一个值，但是我们知道gcd在递归过程的最后，b一定会等于0，根据欧几里得算法我们知道此时的$a$就是$gcd(a,b)$的值,所以此时的$x$为1，而由于b为0，y可以为任意值，不妨就设其为0。此时，我们知道了一组$x,y$ 的值，也知道相邻两组$x,y$的关系，就可以在递归回溯时更新$x,y$ 回溯结束求得x,y值。</p>
+<p><strong>代码：</strong></p>
+<figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">exgcd</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a,<span class="hljs-keyword">int</span> b,<span class="hljs-keyword">int</span> &amp;d,<span class="hljs-keyword">int</span> &amp;x,<span class="hljs-keyword">int</span> &amp;y)</span>	<span class="hljs-comment">//d为gcd(a,b)</span></span></span><br><span class="line"><span class="hljs-function"></span>&#123;</span><br><span class="line">    <span class="hljs-keyword">if</span>(b)&#123;exgcd(b,a%b,d,y,x);y-=(x*a/b);&#125;	<span class="hljs-comment">//x,y递归时修改</span></span><br><span class="line">    <span class="hljs-keyword">else</span> &#123;d = a,x = <span class="hljs-number">1</span>,y = <span class="hljs-number">0</span>;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>exgcd的一大用法：<strong>求逆元</strong>(常用于求mod非质数的逆元)</p>
+<p>根据逆元定理<br>$$<br>ax=1 \pmod p<br>$$<br>可以转化为<br>$$<br>ax + kp = 1 ( k \subset N)<br>$$<br>此时就转化为了经典的$ax+by=gcd(a,b) $</p>
+<p>代码：</p>
+<figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">exgcd</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a,<span class="hljs-keyword">int</span> b,<span class="hljs-keyword">int</span> &amp;d,<span class="hljs-keyword">int</span> &amp;x,<span class="hljs-keyword">int</span> &amp;y)</span></span></span><br><span class="line"><span class="hljs-function"></span>&#123;</span><br><span class="line">    <span class="hljs-keyword">if</span>(b)&#123;exgcd(b,a%b,d,y,x);y-=(x*a/b);&#125;</span><br><span class="line">    <span class="hljs-keyword">else</span> &#123;d = a,x = <span class="hljs-number">1</span>,y = <span class="hljs-number">0</span>;&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">inv</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a,<span class="hljs-keyword">int</span> mod)</span><span class="hljs-comment">//求a在mod下的逆元，不存在逆元返回-1 </span></span></span><br><span class="line"><span class="hljs-function"></span>&#123;</span><br><span class="line">    <span class="hljs-keyword">int</span> d,x,y;</span><br><span class="line">    exgcd(a,mod,d,x,y);</span><br><span class="line">    <span class="hljs-keyword">return</span> d == <span class="hljs-number">1</span> ? (x % mod + mod) % mod : <span class="hljs-number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="中国剩余定理（CRT）"><a href="#中国剩余定理（CRT）" class="headerlink" title="中国剩余定理（CRT）"></a>中国剩余定理（CRT）</h3><blockquote>
+<p><strong>中国剩余定理</strong>，又称<strong>中国余数定理</strong>，是<a href="https://zh.wikipedia.org/wiki/数论" target="_blank" rel="noopener">数论</a>中的一个关于一元线性<a href="https://zh.wikipedia.org/wiki/同余" target="_blank" rel="noopener">同余</a>方程组的定理，说明了一元线性同余方程组有解的准则以及求解方法。</p>
+</blockquote>
+<p>定理内容：</p>
+<p>存在n个方程组 （$b_1,b_2\dotsb_n$均两两互质）<br>$$<br>\begin{equation}<br>{<br>    x \equiv a_1 \pmod {b_1}\<br>    x \equiv a_2 \pmod {b_2}\<br>    x \equiv a_3 \pmod {b_3}\<br>    x \equiv a_n \pmod {b_n}\<br>}<br>\end{equation}<br>$$<br>定义<br>$$<br>M = \prod_{i=1}^{n}b_i\<br>m_i =\frac{M}{b_i}\<br>t_i=m_i^{-1} (t_i为m_i的数论倒数即逆元)<br>$$<br>则<br>$$<br>x=\sum_{i=1}^{n} a_im_it_i + kM (k\subset N)<br>$$<br>板子题：<a href="https://www.luogu.org/problem/P3868" target="_blank" rel="noopener">luogu P3868 猜数字</a></p>
+<p>AC代码</p>
+<figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;</span><br><span class="line"><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> ll;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">int</span> n;</span><br><span class="line">ll a[<span class="hljs-number">15</span>],b[<span class="hljs-number">15</span>];</span><br><span class="line"></span><br><span class="line"><span class="hljs-function">ll <span class="hljs-title">qmul</span><span class="hljs-params">(ll x,ll y,ll mod)</span></span></span><br><span class="line"><span class="hljs-function"></span>&#123;</span><br><span class="line">    ll res = <span class="hljs-number">0</span>;</span><br><span class="line">    <span class="hljs-keyword">while</span>(y)&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span>(y &amp; <span class="hljs-number">1</span>) res = (res + x) % mod;</span><br><span class="line">        x = (x + x) % mod;</span><br><span class="line">        y &gt;&gt;= <span class="hljs-number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">exgcd</span><span class="hljs-params">(ll a,ll b,ll &amp;d,ll &amp;x,ll &amp;y)</span></span></span><br><span class="line"><span class="hljs-function"></span>&#123;</span><br><span class="line">    <span class="hljs-keyword">if</span>(b)&#123;exgcd(b,a%b,d,y,x);y-= x * (a/b);&#125;</span><br><span class="line">    <span class="hljs-keyword">else</span> &#123;x = <span class="hljs-number">1</span>,y =<span class="hljs-number">0</span>,d = a;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function">ll <span class="hljs-title">china</span><span class="hljs-params">()</span></span></span><br><span class="line"><span class="hljs-function"></span>&#123;</span><br><span class="line">    ll lcm = <span class="hljs-number">1</span>;</span><br><span class="line">    ll ans = <span class="hljs-number">0</span>;</span><br><span class="line">    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;i &lt; n;++i) lcm *= b[i];</span><br><span class="line">    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;i &lt; n;++i)&#123;</span><br><span class="line">        ll gcd,x,y;</span><br><span class="line">        exgcd(lcm/b[i],b[i],gcd,x,y);</span><br><span class="line">        x = (x%b[i] + b[i]) % b[i];</span><br><span class="line">        ans += qmul(qmul(a[i] , lcm / b[i] ,lcm), x,lcm);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">return</span> (ans%lcm + lcm) % lcm;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span></span><br><span class="line"><span class="hljs-function"></span>&#123;</span><br><span class="line">    <span class="hljs-built_in">cin</span>&gt;&gt;n;</span><br><span class="line">    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;i &lt; n;++i) <span class="hljs-built_in">cin</span>&gt;&gt;a[i];</span><br><span class="line">    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;i &lt; n;++i) <span class="hljs-built_in">cin</span>&gt;&gt;b[i];</span><br><span class="line">    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%lld\n"</span>,china());</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="扩展中国剩余定理（EXCRT）"><a href="#扩展中国剩余定理（EXCRT）" class="headerlink" title="扩展中国剩余定理（EXCRT）"></a>扩展中国剩余定理（EXCRT）</h3><p>扩展中国剩余定理同样是求解一元线性同余方程组的方法，与中国剩余定理不同的是它的使用范围更广，它对$b_i$之间没有两两互质的要求。</p>
+<p>求解excrt的方法是<strong>倍增法</strong></p>
+<p>假设我们已经求得了前i个方程的最小解，得到<br>$$<br>x \equiv a_i\pmod {b_i}\<br>x \equiv a_{i+1} \pmod {b_{i+1}}<br>$$<br>即<br>$$<br>x = a_i + k_1b_i\<br>x = a_{i+1}+k_2b_{i+1}<br>$$<br>两式相减<br>$$<br>k_1b_{i}-k_2b_{i+1}=a_{i+1}-a_i<br>$$<br>两边同除$gcd(b_i,b_{i+1})$(为方便设$gcd = gcd(b_i,b_{i+1})$) </p>
+<p>得到<br>$$<br>\frac{b_i}{gcd}k_1 = \frac{a_{i+1}-a_i}{gcd} + \frac{b_{i+1}}{gcd}k_2<br>$$<br>即<br>$$<br>\frac{b_i}{gcd}k_1 = \frac{a_{i+1}-a_i}{gcd} \pmod {\frac{b_{i+1}}{gcd}}<br>$$<br>两边同除$\frac{b_i}{gcd}$ ，得到<br>$$<br>k_1 \equiv \frac{a_{i+1}-a_i}{gcd} \times (\frac{b_i}{gcd})^{-1} \pmod {\frac{b_{i+1}}{gcd}}<br>$$<br>化简<br>$$<br>k_1 \equiv \frac{a_{i+1}-a_i}{gcd} \times (\frac{b_i}{gcd})^{-1}   + t \times {\frac{b_{i+1}}{gcd}}<br>$$<br>其中$(\frac{b_i}{gcd})^{-1}$ 为模$\frac{b_{i+1}}{gcd}$下的$\frac{b_i}{gcd}$的数论倒数，即逆元</p>
+<p>令<br>$$<br>k_0=\frac{a_{i+1}-a_i}{gcd} \times (\frac{b_i}{gcd})^{-1}<br>$$<br>回代入$x = a_i + k_1b_i$ 得到：<br>$$<br>\begin{equation}<br>\begin{aligned}<br>x &amp;= a_i+k_1b_i\<br>&amp;=a_i+(k_0  + t \times {\frac{b_{i+1}}{gcd}}) \times b_i\<br>&amp;=a_i+k_0b_i \pmod{\frac{b_i \times b_{i+1}}{gcd}}\<br>&amp;=a_i + k_0b_i \pmod{lcm(b_i,b_{i+1})}<br>\end{aligned}<br>\end{equation}<br>$$<br>等等，我们好像忘了一件重要的事情😨,$k_0$的值好像忘了求.</p>
+<p>我们设方程<br>$$<br>K_1b_i-K_2b_{i+1}=gcd（b_i,b_{i+1}）<br>$$<br>因此使用exgcd可以得到上述方程的最小整数解$K_1$ 。<strong>（此时方程有解条件是$\frac{a_{i+1}-a_i}{gcd(b_i,b_{i+1})}$为整数）</strong></p>
+<p>将得到的解带入方程后两边同时乘$\frac{a_{i+1}-a_i}{gcd(b_i,b_{i+1})}$得到<br>$$<br>k_1= \frac{(a_{i+1}-a_i)}{gcd(b_i,b_{i+1})} \times K_1<br>$$</p>
+<hr>
+<p>证毕，费了这么多唇舌最后求得的结论就是：<br>$$<br>x \equiv kb_i+a_i \pmod{lcm(b_1,b_2\dots,b_{i+1})}<br>$$<br>倍增合并最后就可求得x的真正值。</p>
+<figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> ll;</span><br><span class="line"><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> MAXN = <span class="hljs-number">1e5</span> + <span class="hljs-number">10</span>;</span><br><span class="line"><span class="hljs-keyword">int</span> n;</span><br><span class="line">ll a[MAXN],b[MAXN];</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">exgcd</span><span class="hljs-params">(ll a,ll b, ll&amp;d,ll &amp;x, ll &amp;y)</span></span></span><br><span class="line"><span class="hljs-function"></span>&#123;</span><br><span class="line">    <span class="hljs-keyword">if</span>(b) &#123;exgcd(b,a%b,d,y,x),y -= x * (a/b);&#125;</span><br><span class="line">    <span class="hljs-keyword">else</span> &#123;d = a,x = <span class="hljs-number">1</span>,y = <span class="hljs-number">0</span>;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function">ll <span class="hljs-title">mul</span><span class="hljs-params">(ll x,ll y,ll mod)</span></span></span><br><span class="line"><span class="hljs-function"></span>&#123;</span><br><span class="line">    ll res = <span class="hljs-number">0</span>;</span><br><span class="line">    <span class="hljs-keyword">while</span>(y)&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span>(y &amp; <span class="hljs-number">1l</span>l) res = (res + x)%mod;</span><br><span class="line">        x = (x &lt;&lt; <span class="hljs-number">1l</span>l) % mod;</span><br><span class="line">        y &gt;&gt;= <span class="hljs-number">1l</span>l;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">return</span> (res % mod + mod) % mod;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function">ll <span class="hljs-title">excrt</span><span class="hljs-params">()</span></span></span><br><span class="line"><span class="hljs-function"></span>&#123;</span><br><span class="line">    ll A = a[<span class="hljs-number">0</span>],B = b[<span class="hljs-number">0</span>],x,y,gcd,tmp;       <span class="hljs-comment">//A = ai B = bi x = k</span></span><br><span class="line">    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>;i &lt; n;++i)&#123;</span><br><span class="line">        exgcd(B,b[i],gcd,x,y);     			<span class="hljs-comment">//x = K1</span></span><br><span class="line">        tmp = ((a[i] - A) % b[i] + b[i])%b[i];</span><br><span class="line">        <span class="hljs-keyword">if</span>(tmp % gcd) <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;</span><br><span class="line">        </span><br><span class="line">        x = mul(x,tmp /gcd,b[i]/gcd);</span><br><span class="line">        A = (A + x * B);            </span><br><span class="line">        B = (B /gcd * b[i]);             	<span class="hljs-comment">//递推增加B,即lcm(b1,b2,...,bn) ,先除后乘防止溢出</span></span><br><span class="line">        A = (A + B) % B;            </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">return</span> A;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span></span><br><span class="line"><span class="hljs-function"></span>&#123;</span><br><span class="line">    <span class="hljs-built_in">cin</span>&gt;&gt;n;</span><br><span class="line">    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;i &lt; n;++i)&#123;</span><br><span class="line">       <span class="hljs-built_in">cin</span>&gt;&gt;b[i]&gt;&gt;a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%lld\n"</span>,excrt());</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="欧拉函数"><a href="#欧拉函数" class="headerlink" title="欧拉函数"></a>欧拉函数</h3><blockquote>
+<p><strong>在数论，对正整数n，欧拉函数是小于n的正整数中与n互质的数的数目</strong></p>
+</blockquote>
+<figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">//基于线性素数筛改写的欧拉筛</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">init</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">    <span class="hljs-built_in">memset</span>(notprime, <span class="hljs-number">0</span>, <span class="hljs-keyword">sizeof</span>(notprime));</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">2</span>; i &lt; maxn; i++) &#123;</span><br><span class="line">        <span class="hljs-keyword">if</span> (!notprime[i]) prime[cnt++] = i; </span><br><span class="line">        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; cnt &amp;&amp; i * prime[j] &lt; maxn; j++) &#123;</span><br><span class="line">            notprime[i * prime[j]] = <span class="hljs-number">1</span>;    </span><br><span class="line">            <span class="hljs-keyword">if</span> (!(i % prime[j]))&#123;</span><br><span class="line">                phi[prime[j] * i] =  prime[j] * phi[i];</span><br><span class="line">                <span class="hljs-keyword">break</span>;</span><br><span class="line">            &#125;     </span><br><span class="line">            <span class="hljs-keyword">else</span>&#123;</span><br><span class="line">                phi[prime[j] * i] = (prime[j] - <span class="hljs-number">1</span>) * phi[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">//欧拉函数直接求法(唯一分解定理思路)</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">Euler</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span></span></span><br><span class="line"><span class="hljs-function"></span>&#123;</span><br><span class="line">    <span class="hljs-keyword">int</span> res = x;</span><br><span class="line">    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">2</span>;i &lt;= <span class="hljs-built_in">sqrt</span>(x);++i)&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span>(x % i == <span class="hljs-number">0</span>)</span><br><span class="line">            res = res / i * (i - <span class="hljs-number">1</span>);</span><br><span class="line">        <span class="hljs-keyword">while</span>(x % i == <span class="hljs-number">0</span>)</span><br><span class="line">            x /= i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">if</span>(x &gt; <span class="hljs-number">1</span>)&#123;</span><br><span class="line">        res = res / x * (x - <span class="hljs-number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>降幂公式：</strong><br>$$<br>{\forall}k &lt; \varphi(m) 有a^{k \bmod \varphi(m) + \varphi(m)}成立，其中\varphi(m)为欧拉函数。<br>$$</p>
+<h3 id="康托展开"><a href="#康托展开" class="headerlink" title="康托展开"></a>康托展开</h3><blockquote>
+<p>康托展开是一个全排列到一个自然数的双射，常用于构建hash表时的空间压缩。设有n个数（1，2，3，4,…,n），可以有组成不同(n!种)的排列组合，康托展开表示的就是是当前排列组合在n个不同元素的全排列中的名次。</p>
+</blockquote>
+<p>原理：<br>$$<br>X=a[n]<em>(n-1)!+a[n-1]</em>(n-2)!+…+a[i]<em>(i-1)!+…+a[1]</em>0!<br>$$</p>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/crt-excrt/">crt&excrt</a>, <a class="has-link-grey -link" href="/tags/gcd-exgcd/">gcd&exgcd</a>, <a class="has-link-grey -link" href="/tags/康托展开/">康托展开</a>, <a class="has-link-grey -link" href="/tags/数论/">数论</a>, <a class="has-link-grey -link" href="/tags/欧拉函数/">欧拉函数</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
+
+<div class="notification is-danger">
+    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/post/cpp6/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">C++格式化输出方法</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/post/HDU_1043/">
+                <span class="level-item">HDU_1043 Eight [搜索] + [康托展开]</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="is-rounded" src="https://www.gravatar.com/avatar/5fd1a8b8a2cb5964a717f4b7de4d09c9?s=128" alt="Rainy">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        Rainy
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        a loser.
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Chengdu</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        13
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        3
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        17
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/ppoffice" target="_blank">
+                关注我</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Github" href="https://github.com/ppoffice">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Facebook" href="https://facebook.com">
+                
+                <i class="fab fa-facebook"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Twitter" href="https://twitter.com">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Dribbble" href="https://dribbble.com">
+                
+                <i class="fab fa-dribbble"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="RSS" href="/">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                分类
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/Notes/">
+            <span class="level-start">
+                <span class="level-item">Notes</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/学习总结/">
+            <span class="level-start">
+                <span class="level-item">学习总结</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">10</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/解题报告/">
+            <span class="level-start">
+                <span class="level-item">解题报告</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            标签云
+        </h3>
+        <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/ICPC/" style="font-size: 16.67px;">ICPC</a> <a href="/tags/crt-excrt/" style="font-size: 10px;">crt&excrt</a> <a href="/tags/gcd-exgcd/" style="font-size: 10px;">gcd&exgcd</a> <a href="/tags/tarjan/" style="font-size: 10px;">tarjan</a> <a href="/tags/图论/" style="font-size: 10px;">图论</a> <a href="/tags/康托展开/" style="font-size: 13.33px;">康托展开</a> <a href="/tags/排序/" style="font-size: 10px;">排序</a> <a href="/tags/搜索/" style="font-size: 10px;">搜索</a> <a href="/tags/数学/" style="font-size: 10px;">数学</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/数论/" style="font-size: 10px;">数论</a> <a href="/tags/板子/" style="font-size: 16.67px;">板子</a> <a href="/tags/模拟/" style="font-size: 10px;">模拟</a> <a href="/tags/欧拉函数/" style="font-size: 10px;">欧拉函数</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a> <a href="/tags/题解/" style="font-size: 10px;">题解</a>
+    </div>
+</div>
+
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/09/">
+                <span class="level-start">
+                    <span class="level-item">九月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/07/">
+                <span class="level-start">
+                    <span class="level-item">七月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">7</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/C/">
+                        <span class="tag">C++</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ICPC/">
+                        <span class="tag">ICPC</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/crt-excrt/">
+                        <span class="tag">crt&amp;excrt</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/gcd-exgcd/">
+                        <span class="tag">gcd&amp;exgcd</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/tarjan/">
+                        <span class="tag">tarjan</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/图论/">
+                        <span class="tag">图论</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/康托展开/">
+                        <span class="tag">康托展开</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/排序/">
+                        <span class="tag">排序</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/搜索/">
+                        <span class="tag">搜索</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/数学/">
+                        <span class="tag">数学</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/数据结构/">
+                        <span class="tag">数据结构</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/数论/">
+                        <span class="tag">数论</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/板子/">
+                        <span class="tag">板子</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/模拟/">
+                        <span class="tag">模拟</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/欧拉函数/">
+                        <span class="tag">欧拉函数</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/随笔/">
+                        <span class="tag">随笔</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/题解/">
+                        <span class="tag">题解</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/09/">
+                <span class="level-start">
+                    <span class="level-item">九月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/07/">
+                <span class="level-start">
+                    <span class="level-item">七月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">7</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/C/">
+                        <span class="tag">C++</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ICPC/">
+                        <span class="tag">ICPC</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/crt-excrt/">
+                        <span class="tag">crt&amp;excrt</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/gcd-exgcd/">
+                        <span class="tag">gcd&amp;exgcd</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/tarjan/">
+                        <span class="tag">tarjan</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/图论/">
+                        <span class="tag">图论</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/康托展开/">
+                        <span class="tag">康托展开</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/排序/">
+                        <span class="tag">排序</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/搜索/">
+                        <span class="tag">搜索</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/数学/">
+                        <span class="tag">数学</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/数据结构/">
+                        <span class="tag">数据结构</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/数论/">
+                        <span class="tag">数论</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/板子/">
+                        <span class="tag">板子</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/模拟/">
+                        <span class="tag">模拟</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/欧拉函数/">
+                        <span class="tag">欧拉函数</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/随笔/">
+                        <span class="tag">随笔</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/题解/">
+                        <span class="tag">题解</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="数论学习小结" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 Rainy&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
+<script>
+var IcarusThemeSettings = {
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>
