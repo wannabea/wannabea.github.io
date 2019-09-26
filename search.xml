@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Poj 3268 [Dijkstra]]]></title>
+    <url>%2Fpost%2Fpoj3268%2F</url>
+    <content type="text"><![CDATA[就是想找道题熟悉熟悉板子…结果读错题wa了几发难受哇.. 题意：给出m条单向边寻找所有点中到x点来回最短路中的最长路。 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273#include &lt;queue&gt;#include &lt;iostream&gt;#include &lt;algorithm&gt;#include &lt;string&gt;#include &lt;cstring&gt;using namespace std;const int MAXN = 1e3 + 10;const int inf = 0x3f3f3f3f;struct node&#123; int v; int e; node(int _v,int _e):v(_v),e(_e)&#123;&#125; bool operator&lt;(const node &amp;p)const&#123; return v &gt; p.v; &#125;&#125;;struct Edge&#123; int to; int cost; Edge(int _t,int _c):to(_t),cost(_c)&#123;&#125;&#125;;vector&lt;Edge&gt; edges[MAXN];int n,m,x;int dis[MAXN],vis[MAXN];int ans[MAXN];void dij(int s)&#123; for(int i = 0;i &lt;= n;++i) dis[i] = inf; memset(vis,0,sizeof(vis)); dis[s] = 0; priority_queue&lt;node&gt; que; que.push(node(0,s)); while(!que.empty())&#123; node hd = que.top(); que.pop(); if(vis[hd.e]) continue; vis[hd.e] = 1; for(int i = 0;i &lt; edges[hd.e].size();++i)&#123; Edge &amp;e = edges[hd.e][i]; int to = e.to; if(dis[to] &gt; dis[hd.e] + e.cost)&#123; dis[to] = dis[hd.e] + e.cost; que.push(node(dis[to],to)); &#125; &#125; &#125;&#125;int main()&#123; cin&gt;&gt;n&gt;&gt;m&gt;&gt;x; for(int i = 0;i &lt; m;++i)&#123; int u,v,cost; cin&gt;&gt;u&gt;&gt;v&gt;&gt;cost; edges[u].push_back(Edge(v,cost)); &#125; int res = 0; dij(x); for(int i = 1;i &lt;= n;++i)&#123; ans[i] = dis[i]; &#125; for(int i = 1;i &lt;= n;++i)&#123; dij(i); res = max(res,ans[i] + dis[x]); &#125; cout &lt;&lt; res &lt;&lt;endl; return 0;&#125;]]></content>
+      <categories>
+        <category>解题报告</category>
+      </categories>
+      <tags>
+        <tag>最短路</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[C++格式化输出方法]]></title>
     <url>%2Fpost%2Fcpp6%2F</url>
     <content type="text"><![CDATA[cout 浮点数格式化输出iomainip.h是I/O流控制的头文件 >> setiosflags操作符setiosflags() 算子实际上是一个库函数，它以一些标志作为参数，以达到特定作用。 标 志 作 用 ios::left 输出数据在本域宽范围内向左对齐 ios::right 输出数据在本域宽范围内向右对齐 ios::internal 数值的符号位在域宽内左对齐，数值右对齐，中间由填充字符填充 ios::dec 设置整数的基数为 10 ios::oct 设置整数的基数为 8 ios::hex 设置整数的基数为 16 ios::showbase 强制输出整数的基数（八进制数以 0 开头，十六进制数以 0x 打头） ios::showpoint 强制输出浮点数的小点和尾数 0 ios::uppercase 在以科学记数法格式 E 和以十六进制输出字母时以大写表示 ios::showpos 对正数显示“+”号 ios::scientific 浮点数以科学记数法格式输出 ios::fixed 浮点数以定点格式（小数形式）输出 ios::unitbuf 每次输出之后刷新所有的流 ios::stdio 每次输出之后清除 stdout, stderr 1234//例如 double db = 123.456; cout&lt;&lt;setiosflags(ios::fixed)&lt;&lt;setprecision(2)&lt;&lt;db&lt;&lt;endl;//设置为以浮点数格式输出，再设定保留2位小数（四舍五入）//多个标志符之间可以使用‘|’相连]]></content>

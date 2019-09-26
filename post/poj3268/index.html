@@ -7,21 +7,22 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>分类: 学习总结 - Rainy&#39;s Blog</title>
+<title>Poj 3268 [Dijkstra] - Rainy&#39;s Blog</title>
 
 
-    <meta name="description" content="世之奇伟、瑰怪、非常之观，常在于险远，而人之所罕至焉，故非有志者不能至也。">
-<meta name="keywords" content="All will be better.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Rainy&#39;s Blog">
-<meta property="og:url" content="http://rainyblog.top/categories/学习总结/index.html">
+    <meta name="description" content="就是想找道题熟悉熟悉板子…结果读错题wa了几发难受哇.. 题意：给出m条单向边寻找所有点中到x点来回最短路中的最长路。 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273#in">
+<meta name="keywords" content="最短路">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Poj 3268 [Dijkstra]">
+<meta property="og:url" content="http://rainyblog.top/post/poj3268/index.html">
 <meta property="og:site_name" content="Rainy&#39;s Blog">
-<meta property="og:description" content="世之奇伟、瑰怪、非常之观，常在于险远，而人之所罕至焉，故非有志者不能至也。">
+<meta property="og:description" content="就是想找道题熟悉熟悉板子…结果读错题wa了几发难受哇.. 题意：给出m条单向边寻找所有点中到x点来回最短路中的最长路。 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273#in">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://rainyblog.top/images/og_image.png">
+<meta property="og:updated_time" content="2019-09-20T09:22:39.572Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Rainy&#39;s Blog">
-<meta name="twitter:description" content="世之奇伟、瑰怪、非常之观，常在于险远，而人之所罕至焉，故非有志者不能至也。">
+<meta name="twitter:title" content="Poj 3268 [Dijkstra]">
+<meta name="twitter:description" content="就是想找道题熟悉熟悉板子…结果读错题wa了几发难受哇.. 题意：给出m条单向边寻找所有点中到x点来回最短路中的最长路。 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273#in">
 <meta name="twitter:image" content="http://rainyblog.top/images/og_image.png">
 
 
@@ -92,7 +93,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="Rainy&#39;s Blog" height="28">
+                <img src="/images/logo.svg" alt="Poj 3268 [Dijkstra]" height="28">
             
             </a>
         </div>
@@ -143,408 +144,108 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-09-26T14:12:11.766Z">2019-09-26</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/解题报告/">解题报告</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    2 分钟 读完 (大约 273 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                Poj 3268 [Dijkstra]
+            
+        </h1>
+        <div class="content">
+            <p>就是想找道题熟悉熟悉板子…结果读错题wa了几发难受哇..</p>
+<p><strong>题意：给出m条单向边寻找所有点中到x点来回最短路中的最长路。</strong></p>
+<figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> MAXN = <span class="hljs-number">1e3</span> + <span class="hljs-number">10</span>;</span><br><span class="line"><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> inf = <span class="hljs-number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">node</span>&#123;</span></span><br><span class="line">    <span class="hljs-keyword">int</span> v;</span><br><span class="line">    <span class="hljs-keyword">int</span> e;</span><br><span class="line">    node(<span class="hljs-keyword">int</span> _v,<span class="hljs-keyword">int</span> _e):v(_v),e(_e)&#123;&#125;</span><br><span class="line">    <span class="hljs-keyword">bool</span> <span class="hljs-keyword">operator</span>&lt;(<span class="hljs-keyword">const</span> node &amp;p)<span class="hljs-keyword">const</span>&#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> v &gt; p.v;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Edge</span>&#123;</span></span><br><span class="line">    <span class="hljs-keyword">int</span> to;</span><br><span class="line">    <span class="hljs-keyword">int</span> cost;</span><br><span class="line">    Edge(<span class="hljs-keyword">int</span> <span class="hljs-keyword">_t</span>,<span class="hljs-keyword">int</span> _c):to(<span class="hljs-keyword">_t</span>),cost(_c)&#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="hljs-built_in">vector</span>&lt;Edge&gt; edges[MAXN];</span><br><span class="line"><span class="hljs-keyword">int</span> n,m,x;</span><br><span class="line"><span class="hljs-keyword">int</span> dis[MAXN],vis[MAXN];</span><br><span class="line"><span class="hljs-keyword">int</span> ans[MAXN];</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">dij</span><span class="hljs-params">(<span class="hljs-keyword">int</span> s)</span></span></span><br><span class="line"><span class="hljs-function"></span>&#123;</span><br><span class="line">    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;i &lt;= n;++i) dis[i] = inf;</span><br><span class="line">    <span class="hljs-built_in">memset</span>(vis,<span class="hljs-number">0</span>,<span class="hljs-keyword">sizeof</span>(vis));</span><br><span class="line">    </span><br><span class="line">    dis[s] = <span class="hljs-number">0</span>;</span><br><span class="line">    priority_queue&lt;node&gt; que;</span><br><span class="line">    que.push(node(<span class="hljs-number">0</span>,s));</span><br><span class="line">    <span class="hljs-keyword">while</span>(!que.empty())&#123;</span><br><span class="line">        node hd = que.top();</span><br><span class="line">        que.pop();</span><br><span class="line">        <span class="hljs-keyword">if</span>(vis[hd.e]) <span class="hljs-keyword">continue</span>;</span><br><span class="line">        vis[hd.e] = <span class="hljs-number">1</span>;</span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;i &lt; edges[hd.e].size();++i)&#123;</span><br><span class="line">            Edge &amp;e = edges[hd.e][i];</span><br><span class="line">            <span class="hljs-keyword">int</span> to = e.to;</span><br><span class="line">            <span class="hljs-keyword">if</span>(dis[to] &gt; dis[hd.e] + e.cost)&#123;</span><br><span class="line">                dis[to] = dis[hd.e] + e.cost;</span><br><span class="line">                que.push(node(dis[to],to));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span></span><br><span class="line"><span class="hljs-function"></span>&#123;</span><br><span class="line">    <span class="hljs-built_in">cin</span>&gt;&gt;n&gt;&gt;m&gt;&gt;x;</span><br><span class="line">    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;i &lt; m;++i)&#123;</span><br><span class="line">        <span class="hljs-keyword">int</span> u,v,cost;</span><br><span class="line">        <span class="hljs-built_in">cin</span>&gt;&gt;u&gt;&gt;v&gt;&gt;cost;</span><br><span class="line">        edges[u].push_back(Edge(v,cost));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">int</span> res = <span class="hljs-number">0</span>;</span><br><span class="line">    dij(x);</span><br><span class="line">    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>;i &lt;= n;++i)&#123;</span><br><span class="line">        ans[i] = dis[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>;i &lt;= n;++i)&#123;</span><br><span class="line">        dij(i);</span><br><span class="line">        res = max(res,ans[i] + dis[x]);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-built_in">cout</span> &lt;&lt; res &lt;&lt;<span class="hljs-built_in">endl</span>;</span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/最短路/">最短路</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
     <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/categories">分类</a></li>
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
             
-            <li class="is-active"><a href="#" aria-current="page">学习总结</a></li>
-        </ul>
-        </nav>
-    </div>
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
 </div>
 
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-09-19T09:01:24.812Z">2019-09-19</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/学习总结/">学习总结</a>
-                </div>
                 
                 
-                <span class="level-item has-text-grey">
-                    
-                    
-                    2 分钟 读完 (大约 352 个字)
-                </span>
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
+
+<div class="notification is-danger">
+    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
+</div>
+
                 
                 
-            </div>
+<div class="notification is-danger">
+    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
+</div>
+
+                
         </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/post/cpp6/">C++格式化输出方法</a>
-            
-        </h1>
-        <div class="content">
-            <h4 id="cout-浮点数格式化输出"><a href="#cout-浮点数格式化输出" class="headerlink" title="cout 浮点数格式化输出"></a>cout 浮点数格式化输出</h4><p><strong>iomainip.h</strong>是I/O流控制的头文件</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/post/cpp6/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
     </div>
 </div>
 
 
 
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-09-19T08:49:41.000Z">2019-09-19</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/学习总结/">学习总结</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    13 分钟 读完 (大约 1998 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/post/数论小结/">数论学习小结</a>
-            
-        </h1>
-        <div class="content">
-            <p>最近做题做到了两道数论…于是就翻了翻以前学过的知识点..发现…我忘光了…</p>
-<p>所以这次写篇博客尝试着捡一捡.. 希望不要再忘了…</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/post/数论小结/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-07-08T02:32:54.679Z">2019-07-08</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/学习总结/">学习总结</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    3 分钟 读完 (大约 498 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/post/sort/">各类排序代码及复杂度</a>
-            
-        </h1>
-        <div class="content">
-            <p>下午就要考数据结构了呀有点慌….所以看看排序抱抱佛脚..于是…写了堆排序就停不下来了呢…</p>
-<p>所以就把上课老师讲的排序都写了一遍..交题都过了可是复杂度可能会有些小问题..</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/post/sort/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-07-07T01:42:59.383Z">2019-07-07</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/学习总结/">学习总结</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    14 分钟 读完 (大约 2068 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/post/cpp4/">C++ 学习笔记(四)</a>
-            
-        </h1>
-        <div class="content">
-            <p>这次看的东西有点多..哦不..是看的有点随便..翻一翻就过去了… 感觉有点基础..?(怕不是自己太菜) 所以随便记一下好了..</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/post/cpp4/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-07-06T04:34:32.962Z">2019-07-06</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/学习总结/">学习总结</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    3 分钟 读完 (大约 422 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/post/cpp3/">C++ 学习笔记(三)</a>
-            
-        </h1>
-        <div class="content">
-            <p>考试周终于过去了😭然后现在懒散的一点不愿意学习可咋整..</p>
-<p>刷题的状态还有待恢复，先学学C++吧</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/post/cpp3/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-05-23T15:54:59.431Z">2019-05-23</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/学习总结/">学习总结</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    2 分钟 读完 (大约 231 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/post/cpp2/">C++ 学习笔记(二)</a>
-            
-        </h1>
-        <div class="content">
-            <h3 id="decltype-类型制定符"><a href="#decltype-类型制定符" class="headerlink" title="decltype  类型制定符"></a>decltype  类型制定符</h3><p><strong>用处:</strong> 当我们不知道某个变量的类型而需要从表达式推断要定义的类型时,可以使用C++11的第二种类型说明符.,它的实际作用就是返回操作数的数据类型.在此过程中,<strong>编译器分析表达式并得到其类型,但实际运算表达式的值</strong></p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/post/cpp2/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-05-23T15:54:26.358Z">2019-05-23</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/学习总结/">学习总结</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    5 分钟 读完 (大约 715 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/post/cpp1/">C++ 学习笔记(一)</a>
-            
-        </h1>
-        <div class="content">
-            <p>[TOC]</p>
-<h3 id="变量的声明与定义"><a href="#变量的声明与定义" class="headerlink" title="变量的声明与定义"></a>变量的声明与定义</h3><p>声明关键字 <strong>extern</strong> </p>
-<figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">extern</span> <span class="hljs-keyword">int</span> a; <span class="hljs-comment">//声明</span></span><br><span class="line"><span class="hljs-keyword">int</span> a; 	<span class="hljs-comment">//声明并定义</span></span><br><span class="line"><span class="hljs-keyword">extern</span> <span class="hljs-keyword">int</span> a = <span class="hljs-number">1</span>; <span class="hljs-comment">//定义</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>变量可以被多次声明,仅可定义一次</strong></p>
-<p><strong>若想在多个文件中同时应用const 对象,需要在const前加extern</strong></p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/post/cpp1/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-
-    
 <div class="card card-transparent">
-    <nav class="pagination is-centered" role="navigation" aria-label="pagination">
-        <div class="pagination-previous is-invisible is-hidden-mobile">
-            <a class="is-flex-grow has-text-black-ter" href="/categories/学习总结/page/0/">上一页</a>
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/post/cpp6/">
+                <span class="level-item">C++格式化输出方法</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
         </div>
-        <div class="pagination-next">
-            <a class="is-flex-grow has-text-black-ter" href="/categories/学习总结/page/2/">下一页</a>
-        </div>
-        <ul class="pagination-list is-hidden-mobile">
-            
-            <li><a class="pagination-link is-current" href="/categories/学习总结/">1</a></li>
-            
-            <li><a class="pagination-link has-text-black-ter" href="/categories/学习总结/page/2/">2</a></li>
-            
-        </ul>
-    </nav>
+        
+    </div>
 </div>
+
+
 </div>
                 
 
@@ -1113,7 +814,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="Rainy&#39;s Blog" height="28">
+                    <img src="/images/logo.svg" alt="Poj 3268 [Dijkstra]" height="28">
                 
                 </a>
                 <p class="is-size-7">
