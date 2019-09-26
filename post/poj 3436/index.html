@@ -10,19 +10,19 @@
 <title>Poj 3436 [网络流]+[打印路径] - Rainy&#39;s Blog</title>
 
 
-    <meta name="description" content="英语菜哭了…本菜读题就读了十多分钟…  题意 现在有n条生产线来生产需要p个零件组装的电脑，每条生产线由三部分描述，第一个数字代表该生产线生产速率，第二个描述为输入零件由p个数字组成，0表示不需要，1表示需要，2表示可有可无，第三个描述为输出零件，也由p个数字组成，0表示不产出，1表示产出。只有输出全部为1才代表能生产一整台电脑。现在求最大生产速率，并输出生产线之间的必要连接路径（多种答案均可）。">
+    <meta name="description" content="英语菜哭了…本菜读题就读了十多分钟…">
 <meta name="keywords" content="网络流,Dinic">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Poj 3436 [网络流]+[打印路径]">
 <meta property="og:url" content="http://rainyblog.top/post/poj 3436/index.html">
 <meta property="og:site_name" content="Rainy&#39;s Blog">
-<meta property="og:description" content="英语菜哭了…本菜读题就读了十多分钟…  题意 现在有n条生产线来生产需要p个零件组装的电脑，每条生产线由三部分描述，第一个数字代表该生产线生产速率，第二个描述为输入零件由p个数字组成，0表示不需要，1表示需要，2表示可有可无，第三个描述为输出零件，也由p个数字组成，0表示不产出，1表示产出。只有输出全部为1才代表能生产一整台电脑。现在求最大生产速率，并输出生产线之间的必要连接路径（多种答案均可）。">
+<meta property="og:description" content="英语菜哭了…本菜读题就读了十多分钟…">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://rainyblog.top/images/og_image.png">
-<meta property="og:updated_time" content="2019-09-26T14:11:32.922Z">
+<meta property="og:updated_time" content="2019-09-26T14:20:48.167Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Poj 3436 [网络流]+[打印路径]">
-<meta name="twitter:description" content="英语菜哭了…本菜读题就读了十多分钟…  题意 现在有n条生产线来生产需要p个零件组装的电脑，每条生产线由三部分描述，第一个数字代表该生产线生产速率，第二个描述为输入零件由p个数字组成，0表示不需要，1表示需要，2表示可有可无，第三个描述为输出零件，也由p个数字组成，0表示不产出，1表示产出。只有输出全部为1才代表能生产一整台电脑。现在求最大生产速率，并输出生产线之间的必要连接路径（多种答案均可）。">
+<meta name="twitter:description" content="英语菜哭了…本菜读题就读了十多分钟…">
 <meta name="twitter:image" content="http://rainyblog.top/images/og_image.png">
 
 
@@ -159,7 +159,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    6 分钟 读完 (大约 883 个字)
+                    6 分钟 读完 (大约 884 个字)
                 </span>
                 
                 
@@ -173,6 +173,8 @@
         </h1>
         <div class="content">
             <p>英语菜哭了…本菜读题就读了十多分钟…</p>
+<a id="more"></a>
+
 <hr>
 <h4 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h4><p> 现在有n条生产线来生产需要p个零件组装的电脑，每条生产线由三部分描述，第一个数字代表该生产线生产速率，第二个描述为输入零件由p个数字组成，0表示不需要，1表示需要，2表示可有可无，第三个描述为输出零件，也由p个数字组成，0表示不产出，1表示产出。只有输出全部为1才代表能生产一整台电脑。现在求最大生产速率，并输出生产线之间的必要连接路径（多种答案均可）。</p>
 <h4 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h4><p>首先我们可以把产出与输入相同的生产线联通（边权为无穷大），将每个生产线看作一点，最后形成一个网络。</p>
