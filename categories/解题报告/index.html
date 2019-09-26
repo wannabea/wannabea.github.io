@@ -160,6 +160,60 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-09-26T14:18:03.534Z">2019-09-26</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/解题报告/">解题报告</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    6 分钟 读完 (大约 883 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/post/poj 3436/">Poj 3436 [网络流]+[打印路径]</a>
+            
+        </h1>
+        <div class="content">
+            <p>英语菜哭了…本菜读题就读了十多分钟…</p>
+<hr>
+<h4 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h4><p> 现在有n条生产线来生产需要p个零件组装的电脑，每条生产线由三部分描述，第一个数字代表该生产线生产速率，第二个描述为输入零件由p个数字组成，0表示不需要，1表示需要，2表示可有可无，第三个描述为输出零件，也由p个数字组成，0表示不产出，1表示产出。只有输出全部为1才代表能生产一整台电脑。现在求最大生产速率，并输出生产线之间的必要连接路径（多种答案均可）。</p>
+<h4 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h4><p>首先我们可以把产出与输入相同的生产线联通（边权为无穷大），将每个生产线看作一点，最后形成一个网络。</p>
+<p>但是由于每个点存在限制，需要拆一点为两点，边权为该生产线速率。</p>
+<p>由于源点汇点非单一，所以设置一个超级源点，超级汇点。</p>
+<p>跑一遍dinic即可得到最大速率。</p>
+<p>记录路径：可以记录对比点最初容量与跑完后的容量，若有减小，则必有流量经过。</p>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> MAXN = <span class="hljs-number">2e2</span> + <span class="hljs-number">10</span>;</span><br><span class="line"><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> inf = <span class="hljs-number">0x3f3f3f3f</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Edge</span>&#123;</span></span><br><span class="line">    <span class="hljs-keyword">int</span> from,to,next,cap,ori;	<span class="hljs-comment">//cap为容量，ori为初始容量</span></span><br><span class="line">&#125;edges[MAXN];</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">node</span>&#123;</span></span><br><span class="line">    <span class="hljs-keyword">int</span> in[<span class="hljs-number">15</span>],out[<span class="hljs-number">15</span>];		<span class="hljs-comment">//in为输入，out为输出</span></span><br><span class="line">    <span class="hljs-keyword">int</span> flow;				<span class="hljs-comment">//flow为生产线速率</span></span><br><span class="line">&#125;nodes[MAXN];</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Path</span>&#123;</span></span><br><span class="line">    <span class="hljs-keyword">int</span> u,v,flow;		<span class="hljs-comment">//记录路径，起点终点与流量</span></span><br><span class="line">&#125;path[MAXN];</span><br><span class="line"><span class="hljs-keyword">int</span> p,n;</span><br><span class="line"><span class="hljs-keyword">int</span> head[MAXN],cur[MAXN],num=<span class="hljs-number">0</span>,deep[MAXN],m=<span class="hljs-number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">addedge</span><span class="hljs-params">(<span class="hljs-keyword">int</span> from,<span class="hljs-keyword">int</span> to,<span class="hljs-keyword">int</span> flow)</span></span></span><br><span class="line"><span class="hljs-function"></span>&#123;</span><br><span class="line">    edges[num].from = from;</span><br><span class="line">    edges[num].to = to;</span><br><span class="line">    edges[num].next = head[from];</span><br><span class="line">    edges[num].cap = edges[num].ori = flow;</span><br><span class="line">    head[from] = num;</span><br><span class="line">    num++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">bfs</span><span class="hljs-params">(<span class="hljs-keyword">int</span> s,<span class="hljs-keyword">int</span> t)</span></span></span><br><span class="line"><span class="hljs-function"></span>&#123;</span><br><span class="line">    <span class="hljs-built_in">memset</span>(deep,<span class="hljs-number">-1</span>,<span class="hljs-keyword">sizeof</span>(deep));</span><br><span class="line">    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;i &lt;= <span class="hljs-number">2</span>*n+<span class="hljs-number">1</span>;++i) cur[i] = head[i];</span><br><span class="line">    deep[s] = <span class="hljs-number">0</span>;</span><br><span class="line">    <span class="hljs-built_in">queue</span>&lt;<span class="hljs-keyword">int</span>&gt; que;</span><br><span class="line">    que.push(s);</span><br><span class="line">    <span class="hljs-keyword">while</span>(!que.empty())&#123;</span><br><span class="line">        <span class="hljs-keyword">int</span> v = que.front();</span><br><span class="line">        que.pop();</span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = head[v];i != <span class="hljs-number">-1</span>;i = edges[i].next)&#123;</span><br><span class="line">            Edge &amp;e = edges[i];</span><br><span class="line">            <span class="hljs-keyword">if</span>(e.cap &gt; <span class="hljs-number">0</span>&amp;&amp; deep[e.to] == <span class="hljs-number">-1</span>)&#123;</span><br><span class="line">                deep[e.to] = deep[v] + <span class="hljs-number">1</span>;</span><br><span class="line">                que.push(e.to);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; </span><br><span class="line">    <span class="hljs-keyword">if</span>(deep[t] == <span class="hljs-number">-1</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;</span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">dfs</span><span class="hljs-params">(<span class="hljs-keyword">int</span> v,<span class="hljs-keyword">int</span> t,<span class="hljs-keyword">int</span> f)</span></span></span><br><span class="line"><span class="hljs-function"></span>&#123;</span><br><span class="line">    <span class="hljs-keyword">if</span>(f == <span class="hljs-number">0</span> || v == t) <span class="hljs-keyword">return</span> f;</span><br><span class="line">    <span class="hljs-keyword">int</span> flow = <span class="hljs-number">0</span>;</span><br><span class="line">    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = head[v];i != <span class="hljs-number">-1</span>;i = edges[i].next)&#123;</span><br><span class="line">        Edge &amp;e = edges[i];</span><br><span class="line">        <span class="hljs-keyword">if</span>(deep[e.to] == deep[v] + <span class="hljs-number">1</span>)&#123;</span><br><span class="line">            <span class="hljs-keyword">int</span> d = dfs(e.to,t,min(f,e.cap));</span><br><span class="line">            flow+=d;f-=d;</span><br><span class="line">            e.cap-=d;edges[i^<span class="hljs-number">1</span>].cap+=d;</span><br><span class="line">            <span class="hljs-keyword">if</span>(!f) <span class="hljs-keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">return</span> flow;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">Dinic</span><span class="hljs-params">(<span class="hljs-keyword">int</span> s,<span class="hljs-keyword">int</span> t)</span></span></span><br><span class="line"><span class="hljs-function"></span>&#123;</span><br><span class="line">    <span class="hljs-keyword">int</span> res = <span class="hljs-number">0</span>;</span><br><span class="line">    <span class="hljs-keyword">while</span>(bfs(s,t))&#123;</span><br><span class="line">        res += dfs(s,t,inf);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span></span><br><span class="line"><span class="hljs-function"></span>&#123;</span><br><span class="line">    <span class="hljs-built_in">cin</span>&gt;&gt;p&gt;&gt;n;</span><br><span class="line">    <span class="hljs-built_in">memset</span>(head,<span class="hljs-number">-1</span>,<span class="hljs-keyword">sizeof</span>(head));</span><br><span class="line">    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>;i &lt;= n;++i)&#123;</span><br><span class="line">        <span class="hljs-built_in">cin</span>&gt;&gt;nodes[i].flow;</span><br><span class="line">        <span class="hljs-keyword">int</span> flag1 = <span class="hljs-number">1</span>,flag2 = <span class="hljs-number">1</span>;</span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>;j &lt; p;++j)&#123;</span><br><span class="line">            <span class="hljs-built_in">cin</span>&gt;&gt;nodes[i].in[j];</span><br><span class="line">            <span class="hljs-keyword">if</span>(nodes[i].in[j] == <span class="hljs-number">1</span>) </span><br><span class="line">                flag1 = <span class="hljs-number">0</span>; </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>;j &lt; p;++j)&#123;</span><br><span class="line">            <span class="hljs-built_in">cin</span>&gt;&gt;nodes[i].out[j];</span><br><span class="line">            <span class="hljs-keyword">if</span>(nodes[i].out[j] == <span class="hljs-number">0</span>)</span><br><span class="line">                flag2 = <span class="hljs-number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">if</span>(flag1) addedge(<span class="hljs-number">0</span>,i,inf),addedge(i,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>);		<span class="hljs-comment">//与超级源点相连</span></span><br><span class="line">        <span class="hljs-keyword">if</span>(flag2) addedge(n+i,<span class="hljs-number">2</span>*n+<span class="hljs-number">1</span>,inf),addedge(<span class="hljs-number">2</span>*n+<span class="hljs-number">1</span>,n+i,<span class="hljs-number">0</span>);	<span class="hljs-comment">//与超级汇点相连</span></span><br><span class="line">        addedge(i,n+i,nodes[i].flow);		<span class="hljs-comment">//拆点 前置起点为i,后置终点为n+i</span></span><br><span class="line">        addedge(n+i,i,<span class="hljs-number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>;i &lt;= n;++i)&#123;</span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>;j &lt;= n;++j)&#123;</span><br><span class="line">            <span class="hljs-keyword">if</span>(i == j) <span class="hljs-keyword">continue</span>;</span><br><span class="line">            <span class="hljs-keyword">int</span> flag = <span class="hljs-number">1</span>;</span><br><span class="line">            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> k = <span class="hljs-number">0</span>;k &lt; p;++k)&#123;</span><br><span class="line">                <span class="hljs-keyword">if</span>(nodes[j].in[k] != <span class="hljs-number">2</span> &amp;&amp; nodes[i].out[k] != nodes[j].in[k])&#123;</span><br><span class="line">                    flag = <span class="hljs-number">0</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="hljs-keyword">if</span>(flag)&#123;</span><br><span class="line">                    addedge(n+i,j,inf);		<span class="hljs-comment">//连接相邻点</span></span><br><span class="line">                    addedge(j,n+i,<span class="hljs-number">0</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">int</span> res = Dinic(<span class="hljs-number">0</span>,<span class="hljs-number">2</span>*n+<span class="hljs-number">1</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-keyword">if</span>(res == <span class="hljs-number">0</span>) <span class="hljs-built_in">cout</span>&lt;&lt; <span class="hljs-string">"0 0\n"</span>;</span><br><span class="line">    <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">        <span class="hljs-built_in">cout</span>&lt;&lt;res;</span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;i &lt; num;++i)&#123;</span><br><span class="line">            Edge &amp;e = edges[i];</span><br><span class="line">            <span class="hljs-keyword">if</span>(e.from == <span class="hljs-number">0</span> || e.to == <span class="hljs-number">0</span> || e.from == <span class="hljs-number">2</span>*n+<span class="hljs-number">1</span> || e.to == <span class="hljs-number">2</span>*n+<span class="hljs-number">1</span> ) <span class="hljs-keyword">continue</span>;</span><br><span class="line">            <span class="hljs-keyword">if</span>(e.to &gt; n || e.from &lt;= n) <span class="hljs-keyword">continue</span>;	<span class="hljs-comment">//连接必然是后置点指向前置点</span></span><br><span class="line">            <span class="hljs-keyword">if</span>(edges[i].ori &gt; edges[i].cap)&#123;	<span class="hljs-comment">//判断是否存在流量</span></span><br><span class="line">                path[m].u = e.from - n;</span><br><span class="line">                path[m].v = e.to;</span><br><span class="line">                path[m].flow = e.ori - e.cap;</span><br><span class="line">                m++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-built_in">cout</span>&lt;&lt; <span class="hljs-string">" "</span>&lt;&lt; m&lt;&lt; <span class="hljs-string">"\n"</span>;</span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;i &lt; m;++i)&#123;</span><br><span class="line">            <span class="hljs-built_in">cout</span>&lt;&lt;path[i].u&lt;&lt; <span class="hljs-string">" "</span>&lt;&lt; path[i].v &lt;&lt; <span class="hljs-string">" "</span>&lt;&lt; path[i].flow&lt;&lt;<span class="hljs-string">"\n"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2019-09-26T14:12:11.766Z">2019-09-26</time>
                 
                 <div class="level-item">
@@ -354,7 +408,7 @@
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        14
+                        15
                     </p>
                 </div>
             </div>
@@ -374,7 +428,7 @@
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        18
+                        20
                     </p>
                 </div>
             </div>
@@ -459,7 +513,7 @@
                 <span class="level-item">解题报告</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">3</span>
+                <span class="level-item tag">4</span>
             </span>
         </a></li>
             </ul>
@@ -473,7 +527,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/ICPC/" style="font-size: 16.67px;">ICPC</a> <a href="/tags/crt-excrt/" style="font-size: 10px;">crt&excrt</a> <a href="/tags/gcd-exgcd/" style="font-size: 10px;">gcd&exgcd</a> <a href="/tags/tarjan/" style="font-size: 10px;">tarjan</a> <a href="/tags/图论/" style="font-size: 10px;">图论</a> <a href="/tags/康托展开/" style="font-size: 13.33px;">康托展开</a> <a href="/tags/排序/" style="font-size: 10px;">排序</a> <a href="/tags/搜索/" style="font-size: 10px;">搜索</a> <a href="/tags/数学/" style="font-size: 10px;">数学</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/数论/" style="font-size: 10px;">数论</a> <a href="/tags/最短路/" style="font-size: 10px;">最短路</a> <a href="/tags/板子/" style="font-size: 16.67px;">板子</a> <a href="/tags/模拟/" style="font-size: 10px;">模拟</a> <a href="/tags/欧拉函数/" style="font-size: 10px;">欧拉函数</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a> <a href="/tags/题解/" style="font-size: 10px;">题解</a>
+        <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/Dinic/" style="font-size: 10px;">Dinic</a> <a href="/tags/ICPC/" style="font-size: 16.67px;">ICPC</a> <a href="/tags/crt-excrt/" style="font-size: 10px;">crt&excrt</a> <a href="/tags/gcd-exgcd/" style="font-size: 10px;">gcd&exgcd</a> <a href="/tags/tarjan/" style="font-size: 10px;">tarjan</a> <a href="/tags/图论/" style="font-size: 10px;">图论</a> <a href="/tags/康托展开/" style="font-size: 13.33px;">康托展开</a> <a href="/tags/排序/" style="font-size: 10px;">排序</a> <a href="/tags/搜索/" style="font-size: 10px;">搜索</a> <a href="/tags/数学/" style="font-size: 10px;">数学</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/数论/" style="font-size: 10px;">数论</a> <a href="/tags/最短路/" style="font-size: 10px;">最短路</a> <a href="/tags/板子/" style="font-size: 16.67px;">板子</a> <a href="/tags/模拟/" style="font-size: 10px;">模拟</a> <a href="/tags/欧拉函数/" style="font-size: 10px;">欧拉函数</a> <a href="/tags/网络流/" style="font-size: 10px;">网络流</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a> <a href="/tags/题解/" style="font-size: 10px;">题解</a>
     </div>
 </div>
 
@@ -497,7 +551,7 @@
                     <span class="level-item">九月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">3</span>
+                    <span class="level-item tag">4</span>
                 </span>
             </a>
         </li>
@@ -541,6 +595,13 @@
                     <a class="tags has-addons" href="/tags/C/">
                         <span class="tag">C++</span>
                         <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Dinic/">
+                        <span class="tag">Dinic</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
@@ -645,6 +706,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/欧拉函数/">
                         <span class="tag">欧拉函数</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/网络流/">
+                        <span class="tag">网络流</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -695,7 +763,7 @@
                     <span class="level-item">九月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">3</span>
+                    <span class="level-item tag">4</span>
                 </span>
             </a>
         </li>
@@ -739,6 +807,13 @@
                     <a class="tags has-addons" href="/tags/C/">
                         <span class="tag">C++</span>
                         <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Dinic/">
+                        <span class="tag">Dinic</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
@@ -843,6 +918,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/欧拉函数/">
                         <span class="tag">欧拉函数</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/网络流/">
+                        <span class="tag">网络流</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
