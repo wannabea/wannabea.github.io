@@ -1745,7 +1745,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #617114;
+  background: #9a0bff;
 }
 .feed-link,
 .chat {
@@ -1897,7 +1897,6 @@ pre .javascript .function {
 .post-toc .nav-item {
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
   line-height: 1.8;
 }
 .post-toc .nav .nav-child {
@@ -2971,4 +2970,25 @@ ul.breadcrumb li+li:last-child {
   .pagination {
     margin: 8px 0 0;
   }
+}
+body {
+  background: url("/images/backGround.png");
+}
+.site-meta {
+  background: #aed6f1;
+}
+.brand {
+  color: #17202a;
+}
+.site-subtitle {
+  color: #17202a;
+}
+.footer {
+  color: #1c2833;
+}
+.footer a {
+  color: #1c2833;
+}
+.footer .with-love {
+  color: #1c2833;
 }
