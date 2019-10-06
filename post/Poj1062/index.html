@@ -92,18 +92,18 @@
 
 
 
-  <meta name="description" content="题目链接：http://poj.org/problem?id=1062 题意：我们想要得到1这个人手里的物品（没错人就是物品吧…），可以直接花P元得到，也可以达成他的X个要求，得到Ti这个人手里的物品，再花Vi元的优惠价格得到1这个人的物品，我们要求得花费最少的钱得到1物品，但是有一个限制，每个人都有一个等级，我们交易的所有人的等级之差必须小于等于M。 输入方式：输入第一行是两个整数M，N（1 &amp;">
+  <meta name="description" content="题目链接：http://poj.org/problem?id=1062 题意我们想要得到1这个人手里的物品（没错人就是物品吧…），可以直接花P元得到，也可以达成他的X个要求，得到Ti这个人手里的物品，再花Vi元的优惠价格得到1这个人的物品，我们要求得花费最少的钱得到1物品，但是有一个限制，每个人都有一个等级，我们交易的所有人的等级之差必须小于等于M。 输入方式：输入第一行是两个整数M，N（1 &amp;l">
 <meta name="keywords" content="最短路">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Poj 1062 [最短路] + [枚举区间]">
 <meta property="og:url" content="http://rainyblog.top/post/Poj1062/index.html">
 <meta property="og:site_name" content="Rainy&#39;s Blog">
-<meta property="og:description" content="题目链接：http://poj.org/problem?id=1062 题意：我们想要得到1这个人手里的物品（没错人就是物品吧…），可以直接花P元得到，也可以达成他的X个要求，得到Ti这个人手里的物品，再花Vi元的优惠价格得到1这个人的物品，我们要求得花费最少的钱得到1物品，但是有一个限制，每个人都有一个等级，我们交易的所有人的等级之差必须小于等于M。 输入方式：输入第一行是两个整数M，N（1 &amp;">
+<meta property="og:description" content="题目链接：http://poj.org/problem?id=1062 题意我们想要得到1这个人手里的物品（没错人就是物品吧…），可以直接花P元得到，也可以达成他的X个要求，得到Ti这个人手里的物品，再花Vi元的优惠价格得到1这个人的物品，我们要求得花费最少的钱得到1物品，但是有一个限制，每个人都有一个等级，我们交易的所有人的等级之差必须小于等于M。 输入方式：输入第一行是两个整数M，N（1 &amp;l">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-06T08:45:06.089Z">
+<meta property="og:updated_time" content="2019-10-06T08:58:29.899Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Poj 1062 [最短路] + [枚举区间]">
-<meta name="twitter:description" content="题目链接：http://poj.org/problem?id=1062 题意：我们想要得到1这个人手里的物品（没错人就是物品吧…），可以直接花P元得到，也可以达成他的X个要求，得到Ti这个人手里的物品，再花Vi元的优惠价格得到1这个人的物品，我们要求得花费最少的钱得到1物品，但是有一个限制，每个人都有一个等级，我们交易的所有人的等级之差必须小于等于M。 输入方式：输入第一行是两个整数M，N（1 &amp;">
+<meta name="twitter:description" content="题目链接：http://poj.org/problem?id=1062 题意我们想要得到1这个人手里的物品（没错人就是物品吧…），可以直接花P元得到，也可以达成他的X个要求，得到Ti这个人手里的物品，再花Vi元的优惠价格得到1这个人的物品，我们要求得花费最少的钱得到1物品，但是有一个限制，每个人都有一个等级，我们交易的所有人的等级之差必须小于等于M。 输入方式：输入第一行是两个整数M，N（1 &amp;l">
 
 
 
@@ -518,7 +518,7 @@
 
       
         <p><strong>题目链接：<a href="http://poj.org/problem?id=1062" target="_blank" rel="noopener">http://poj.org/problem?id=1062</a></strong></p>
-<h4 id="题意："><a href="#题意：" class="headerlink" title="题意："></a>题意：</h4><p>我们想要得到1这个人手里的物品（没错人就是物品吧…），可以直接花P元得到，也可以达成他的X个要求，得到Ti这个人手里的物品，再花Vi元的优惠价格得到1这个人的物品，我们要求得花费最少的钱得到1物品，但是有一个限制，每个人都有一个等级，我们交易的所有人的等级之差必须小于等于M。</p>
+<h4 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h4><p>我们想要得到1这个人手里的物品（没错人就是物品吧…），可以直接花P元得到，也可以达成他的X个要求，得到Ti这个人手里的物品，再花Vi元的优惠价格得到1这个人的物品，我们要求得花费最少的钱得到1物品，但是有一个限制，每个人都有一个等级，我们交易的所有人的等级之差必须小于等于M。</p>
 <p><strong>输入方式：</strong>输入第一行是两个整数M，N（1 &lt;= N &lt;= 100），依次表示地位等级差距限制和物品的总数。接下来按照编号从小到大依次给出了N个物品的描述。每个物品的描述开头是三个非负整数P、L、X（X &lt; N），依次表示该物品的价格、主人的地位等级和替代品总数。接下来X行每行包括两个整数T和V，分别表示替代品的编号和”优惠价格”。</p>
 <h4 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//样例</span></span><br><span class="line"><span class="number">1</span> <span class="number">4</span></span><br><span class="line"><span class="number">10000</span> <span class="number">3</span> <span class="number">2</span></span><br><span class="line"><span class="number">2</span> <span class="number">8000</span></span><br><span class="line"><span class="number">3</span> <span class="number">5000</span></span><br><span class="line"><span class="number">1000</span> <span class="number">2</span> <span class="number">1</span></span><br><span class="line"><span class="number">4</span> <span class="number">200</span></span><br><span class="line"><span class="number">3000</span> <span class="number">2</span> <span class="number">1</span></span><br><span class="line"><span class="number">4</span> <span class="number">200</span></span><br><span class="line"><span class="number">50</span> <span class="number">2</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
 
@@ -811,7 +811,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#题意："><span class="nav-number">1.</span> <span class="nav-text">题意：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#题解"><span class="nav-number">2.</span> <span class="nav-text">题解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#题意"><span class="nav-number">1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#题解"><span class="nav-number">2.</span> <span class="nav-text">题解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li></ol></div>
             
 
           </div>
