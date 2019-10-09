@@ -92,17 +92,18 @@
 
 
 
-  <meta name="description" content="世之奇伟、瑰怪、非常之观，常在于险远，而人之所罕至焉，故非有志者不能至也。">
-<meta name="keywords" content="All will be better.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Rainy&#39;s Blog">
-<meta property="og:url" content="http://rainyblog.top/tags/搜索/index.html">
+  <meta name="description" content="题意有从A开始的n个字母，给出m个条件（以A&amp;gt;B形式给出），判断是否能得到一个确定的由小到大排序好的序列。 如果可以 输出得到这个序列并输出是输入到第几组时得到的。 如果不能得到，输出输入到第几组判断得到 如果无法确定，输出 “Sorted sequence cannot be determined.” 题解每次输入条件，都对所有字母进行拓扑排序，若发现存在环，则必定无确定排序的序列。若得到">
+<meta name="keywords" content="拓扑排序">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Poj 1094 [拓扑排序]">
+<meta property="og:url" content="http://rainyblog.top/post/poj1094/index.html">
 <meta property="og:site_name" content="Rainy&#39;s Blog">
-<meta property="og:description" content="世之奇伟、瑰怪、非常之观，常在于险远，而人之所罕至焉，故非有志者不能至也。">
+<meta property="og:description" content="题意有从A开始的n个字母，给出m个条件（以A&amp;gt;B形式给出），判断是否能得到一个确定的由小到大排序好的序列。 如果可以 输出得到这个序列并输出是输入到第几组时得到的。 如果不能得到，输出输入到第几组判断得到 如果无法确定，输出 “Sorted sequence cannot be determined.” 题解每次输入条件，都对所有字母进行拓扑排序，若发现存在环，则必定无确定排序的序列。若得到">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-09T05:16:05.901Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Rainy&#39;s Blog">
-<meta name="twitter:description" content="世之奇伟、瑰怪、非常之观，常在于险远，而人之所罕至焉，故非有志者不能至也。">
+<meta name="twitter:title" content="Poj 1094 [拓扑排序]">
+<meta name="twitter:description" content="题意有从A开始的n个字母，给出m个条件（以A&amp;gt;B形式给出），判断是否能得到一个确定的由小到大排序好的序列。 如果可以 输出得到这个序列并输出是输入到第几组时得到的。 如果不能得到，输出输入到第几组判断得到 如果无法确定，输出 “Sorted sequence cannot be determined.” 题解每次输入条件，都对所有字母进行拓扑排序，若发现存在环，则必定无确定排序的序列。若得到">
 
 
 
@@ -110,7 +111,7 @@
 
   
   
-  <link rel="canonical" href="http://rainyblog.top/tags/搜索/">
+  <link rel="canonical" href="http://rainyblog.top/post/poj1094/">
 
 
 
@@ -120,7 +121,7 @@
   };
 </script>
 
-  <title>标签: 搜索 | Rainy's Blog</title>
+  <title>Poj 1094 [拓扑排序] | Rainy's Blog</title>
   
 
 
@@ -168,7 +169,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -242,7 +243,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
 
     
     
@@ -376,89 +377,242 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>搜索<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
+    <div class="reading-progress-bar"></div>
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://rainyblog.top/post/poj1094/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rainy">
+      <meta itemprop="description" content="世之奇伟、瑰怪、非常之观，常在于险远，而人之所罕至焉，故非有志者不能至也。">
+      <meta itemprop="image" content="/images/5.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rainy's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-          <a class="post-title-link" href="/post/HDU_1043/" itemprop="url">
-            
-              <span itemprop="name">HDU_1043 Eight [搜索] + [康托展开]</span>
-            
-          </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Poj 1094 [拓扑排序]
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-11T16:10:17+08:00" content="2019-07-11">
-          07-11
-        </time>
-      </div>
+              
+            
+          </h1>
+        
 
-    </header>
-  </article>
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-10-09 13:01:38" itemprop="dateCreated datePublished" datetime="2019-10-09T13:01:38+08:00">2019-10-09</time>
+            </span>
+          
+
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/解题报告/" itemprop="url" rel="index"><span itemprop="name">解题报告</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/post/poj1094/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="post/poj1094/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/post/poj1094/" class="post-meta-item leancloud_visitors" data-flag-title="Poj 1094 [拓扑排序]">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h4><p>有从A开始的n个字母，给出m个条件（以A&gt;B形式给出），判断是否能得到一个确定的由小到大排序好的序列。</p>
+<p>如果可以 输出得到这个序列并输出是输入到第几组时得到的。</p>
+<p>如果不能得到，输出输入到第几组判断得到</p>
+<p>如果无法确定，输出 “Sorted sequence cannot be determined.”</p>
+<h4 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h4><p>每次输入条件，都对所有字母进行拓扑排序，若发现存在环，则必定无确定排序的序列。若得到了一组可排序的序列，则记录当前组数，以后的输入都pass掉。若到最后一组都没发生以上两种情况，则无法确定。</p>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n,m;</span><br><span class="line"><span class="keyword">int</span> in[<span class="number">30</span>],IN[<span class="number">30</span>];		<span class="comment">//IN数组代表入度，不随拓扑排序过程改变，in数组每次copyIN数组进行拓扑排序</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v;			<span class="comment">//记录排序结果</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; G[<span class="number">30</span>];		<span class="comment">//邻接表记录边</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">topsort</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> unsure = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; que;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;++i)&#123;</span><br><span class="line">        <span class="keyword">if</span>(in[i] == <span class="number">0</span>) que.push(i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(!que.empty())&#123;</span><br><span class="line">        <span class="keyword">if</span>(que.size() &gt; <span class="number">1</span>) unsure = <span class="number">1</span>;		<span class="comment">//若队列内元素个数大于1，则有两个数同级，不能得到确定序列</span></span><br><span class="line">        <span class="keyword">int</span> hd = que.front();</span><br><span class="line">        que.pop();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; G[hd].size();++i)&#123;</span><br><span class="line">            in[G[hd][i]]--;</span><br><span class="line">            <span class="keyword">if</span>(!in[G[hd][i]])&#123;</span><br><span class="line">                que.push(G[hd][i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        v.push_back(hd);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(v.size() &lt; n) <span class="keyword">return</span> <span class="number">2</span>;	<span class="comment">//答案中数字少于总数，说明存在环</span></span><br><span class="line">    <span class="keyword">if</span>(unsure) <span class="keyword">return</span> <span class="number">3</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;n&gt;&gt;m &amp;&amp; (n || m ))&#123;</span><br><span class="line">        v.clear();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i= <span class="number">0</span>;i &lt; <span class="number">30</span>;++i) G[i].clear();</span><br><span class="line">        <span class="built_in">memset</span>(in,<span class="number">0</span>,<span class="keyword">sizeof</span>(in));</span><br><span class="line">        <span class="built_in">memset</span>(IN,<span class="number">0</span>,<span class="keyword">sizeof</span>(IN));</span><br><span class="line">        <span class="keyword">char</span> a,b;</span><br><span class="line">        <span class="keyword">int</span> ok = <span class="number">0</span>,cnt = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> flag;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; m;++i)&#123;</span><br><span class="line">            getchar();</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%c&lt;%c"</span>,&amp;a,&amp;b);</span><br><span class="line">            <span class="keyword">if</span>(ok) <span class="keyword">continue</span>;</span><br><span class="line">            G[a-<span class="string">'A'</span>].push_back(b - <span class="string">'A'</span>);</span><br><span class="line">            IN[b-<span class="string">'A'</span>]++;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;++i) in[i] = IN[i];</span><br><span class="line">            v.clear();</span><br><span class="line"></span><br><span class="line">            flag = topsort();</span><br><span class="line">            <span class="keyword">if</span>(flag == <span class="number">1</span>)&#123;</span><br><span class="line">                cnt = i + <span class="number">1</span>;</span><br><span class="line">                ok = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(flag == <span class="number">2</span>)&#123;</span><br><span class="line">                cnt = i + <span class="number">1</span>;</span><br><span class="line">                ok = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;    </span><br><span class="line">        <span class="keyword">if</span>(flag == <span class="number">1</span>)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"Sorted sequence determined after %d relations: "</span>,cnt);</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; v.size();++i) <span class="built_in">printf</span>(<span class="string">"%c"</span>,v[i]+<span class="string">'A'</span>);</span><br><span class="line">            <span class="built_in">puts</span>(<span class="string">"."</span>);</span><br><span class="line">        &#125;    </span><br><span class="line">        <span class="keyword">if</span>(flag == <span class="number">2</span>)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"Inconsistency found after %d relations.\n"</span>,cnt);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(flag == <span class="number">3</span>) <span class="built_in">printf</span>(<span class="string">"Sorted sequence cannot be determined.\n"</span>);</span><br><span class="line">    &#125;    </span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
     </div>
 
+    
+
+    
+    
+    
+	
+	<div>
+	
+	<div>
+    
+        <div style="text-align:center;color: #636363;font-size:14px;letter-spacing: 10px">本文结束<i class="fa fa-bell"></i>感谢您的阅读</div>
+    
+</div>
+	
+	</div>
+	
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/拓扑排序/" rel="tag"># 拓扑排序</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/post/poj1087/" rel="next" title="Poj 1087 [最大流]+[二分图匹配]+[Dinic]">
+                <i class="fa fa-chevron-left"></i> Poj 1087 [最大流]+[二分图匹配]+[Dinic]
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -478,8 +632,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -641,6 +804,23 @@
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#题意"><span class="nav-number">1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#题解"><span class="nav-number">2.</span> <span class="nav-text">题解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
 
@@ -770,6 +950,10 @@
 
 
   
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
 
   
 
@@ -797,9 +981,28 @@
 </script>
 
 
+<script>
+  var disqus_config = function() {
+    this.page.url = "http://rainyblog.top/post/poj1094/";
+    this.page.identifier = "post/poj1094/";
+    this.page.title = 'Poj 1094 [拓扑排序]';
+    };
+  function loadComments() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://Rainy.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', '' + +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  
+    window.addEventListener('load', loadComments, false);
+  
+</script>
 
 
 
+
+
+  
 
 
   
@@ -1131,38 +1334,32 @@
   
   <script>
     
-    function showTime(Counter) {
-      var entries = [];
+    function addCount(Counter) {
       var $visitors = $('.leancloud_visitors');
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
 
-      $visitors.each(function() {
-        entries.push( $(this).attr('id').trim() );
-      });
-
-      Counter('get', '/classes/Counter', { where: JSON.stringify({ url: { '$in': entries } }) })
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
         .done(function({ results }) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
-
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
-
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.url;
-            var time = item.time;
-            var element = document.getElementById(url);
-
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for (var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if (countSpan.text() == '') {
-              countSpan.text(0);
-            }
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': 1 } }))
+            
+              .done(function() {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.time + 1);
+              })
+            
+              .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+              })
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! More info at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
           }
         })
         .fail(function ({ responseJSON }) {
@@ -1187,9 +1384,9 @@
             });
           };
           
-            if ($('.post-title-link').length >= 1) {
-              showTime(Counter);
-            }
+            const localhost = /http:\/\/(localhost|127.0.0.1|0.0.0.0)/;
+            if (localhost.test(document.URL)) return;
+            addCount(Counter);
           
         });
     });
