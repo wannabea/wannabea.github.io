@@ -92,17 +92,20 @@
 
 
 
-  <meta name="description" content="世之奇伟、瑰怪、非常之观，常在于险远，而人之所罕至焉，故非有志者不能至也。">
-<meta name="keywords" content="All will be better.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Rainy&#39;s Blog">
-<meta property="og:url" content="http://rainyblog.top/categories/解题报告/index.html">
+  <meta name="description" content="题意给出n行数据，每行三个数a,b,c,代表[a,b]的闭区间内，至少有c个点被标记，求被标记的最少的点数。 题解1）转化 ​        我们设置一个s数组，s[i]可以代表第0 - i中被标记的点，则一组数据中a,b,c则表示为s[b] - s[a-1] &amp;gt;= c这样的话， s数组的下界就变成了s[-1],为了避免-1的出现，我们将所有的i+1,即s[i+1]代表0 - i中被标记的点">
+<meta name="keywords" content="差分约束">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Poj 1201 [差分约束] + [Spfa]">
+<meta property="og:url" content="http://rainyblog.top/post/poj1201/index.html">
 <meta property="og:site_name" content="Rainy&#39;s Blog">
-<meta property="og:description" content="世之奇伟、瑰怪、非常之观，常在于险远，而人之所罕至焉，故非有志者不能至也。">
+<meta property="og:description" content="题意给出n行数据，每行三个数a,b,c,代表[a,b]的闭区间内，至少有c个点被标记，求被标记的最少的点数。 题解1）转化 ​        我们设置一个s数组，s[i]可以代表第0 - i中被标记的点，则一组数据中a,b,c则表示为s[b] - s[a-1] &amp;gt;= c这样的话， s数组的下界就变成了s[-1],为了避免-1的出现，我们将所有的i+1,即s[i+1]代表0 - i中被标记的点">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://i.loli.net/2019/10/16/V8Wk6cajeKdJw3F.png">
+<meta property="og:updated_time" content="2019-10-16T02:50:04.330Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Rainy&#39;s Blog">
-<meta name="twitter:description" content="世之奇伟、瑰怪、非常之观，常在于险远，而人之所罕至焉，故非有志者不能至也。">
+<meta name="twitter:title" content="Poj 1201 [差分约束] + [Spfa]">
+<meta name="twitter:description" content="题意给出n行数据，每行三个数a,b,c,代表[a,b]的闭区间内，至少有c个点被标记，求被标记的最少的点数。 题解1）转化 ​        我们设置一个s数组，s[i]可以代表第0 - i中被标记的点，则一组数据中a,b,c则表示为s[b] - s[a-1] &amp;gt;= c这样的话， s数组的下界就变成了s[-1],为了避免-1的出现，我们将所有的i+1,即s[i+1]代表0 - i中被标记的点">
+<meta name="twitter:image" content="https://i.loli.net/2019/10/16/V8Wk6cajeKdJw3F.png">
 
 
 
@@ -110,7 +113,7 @@
 
   
   
-  <link rel="canonical" href="http://rainyblog.top/categories/解题报告/">
+  <link rel="canonical" href="http://rainyblog.top/post/poj1201/">
 
 
 
@@ -120,7 +123,7 @@
   };
 </script>
 
-  <title>分类: 解题报告 | Rainy's Blog</title>
+  <title>Poj 1201 [差分约束] + [Spfa] | Rainy's Blog</title>
   
 
 
@@ -168,7 +171,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -258,7 +261,7 @@
         
         
           
-          <li class="menu-item menu-item-解题报告 menu-item-active">
+          <li class="menu-item menu-item-解题报告">
 
     
     
@@ -376,249 +379,252 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block category">
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>解题报告<small>分类</small>
-        </h1>
-      </div>
-
-      
-        
+  
+    <div class="reading-progress-bar"></div>
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://rainyblog.top/post/poj1201/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rainy">
+      <meta itemprop="description" content="世之奇伟、瑰怪、非常之观，常在于险远，而人之所罕至焉，故非有志者不能至也。">
+      <meta itemprop="image" content="/images/5.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rainy's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-          <a class="post-title-link" href="/post/poj1201/" itemprop="url">
-            
-              <span itemprop="name">Poj 1201 [差分约束] + [Spfa]</span>
-            
-          </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Poj 1201 [差分约束] + [Spfa]
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-10-15T19:12:59+08:00" content="2019-10-15">
-          10-15
-        </time>
-      </div>
+              
+            
+          </h1>
+        
 
-    </header>
-  </article>
+        <div class="post-meta">
 
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-10-15 19:12:59" itemprop="dateCreated datePublished" datetime="2019-10-15T19:12:59+08:00">2019-10-15</time>
+            </span>
+          
+
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/解题报告/" itemprop="url" rel="index"><span itemprop="name">解题报告</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/post/poj1201/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="post/poj1201/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/post/poj1201/" class="post-meta-item leancloud_visitors" data-flag-title="Poj 1201 [差分约束] + [Spfa]">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/post/poj1112/" itemprop="url">
-            
-              <span itemprop="name">Poj 1112 [二分图染色]+[背包DP]</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-10-10T20:02:18+08:00" content="2019-10-10">
-          10-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
+        <h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>给出n行数据，每行三个数a,b,c,代表[a,b]的闭区间内，至少有c个点被标记，求被标记的最少的点数。</p>
+<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>1）转化</p>
+<p>​        我们设置一个<strong>s</strong>数组，<strong>s[i]</strong>可以代表第<strong>0 - i</strong>中被标记的点，则一组数据中a,b,c则表示为<strong>s[b] - s[a-1] &gt;= c</strong>这样的话， s数组的下界就变成了s[-1],为了避免-1的出现，我们将所有的<strong>i+1</strong>,即<strong>s[i+1]</strong>代表<strong>0 - i</strong>中被标记的点数量。这时我们可以得到<strong>s[b+1] - s[a] &gt;= c</strong> 我们将s[i]看作一个点，c的值为 <strong>b+1 - a</strong>的权值，我们要求的，也就是最大的b到最小的a点之间，存在多少被标记的点.</p>
+<p>2）建图 </p>
+<p>​        我们首先要了解差分约束的概念，加入我们有三个式子，</p>
+<p>​        A - B &gt;= 2</p>
+<p>​        B - C &gt;= 3</p>
+<p>​        A - C &gt;= 4</p>
+<p>​        就可以由此建图如下</p>
+<img src="https://i.loli.net/2019/10/16/V8Wk6cajeKdJw3F.png" alt="图片1.png" style="zoom: 50%;">
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/post/poj1094/" itemprop="url">
-            
-              <span itemprop="name">Poj 1094 [拓扑排序]</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-10-09T13:01:38+08:00" content="2019-10-09">
-          10-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/post/poj1087/" itemprop="url">
-            
-              <span itemprop="name">Poj 1087 [最大流]+[二分图匹配]+[Dinic]</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-10-08T22:01:22+08:00" content="2019-10-08">
-          10-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/post/Poj1062/" itemprop="url">
-            
-              <span itemprop="name">Poj 1062 [最短路] + [枚举区间]</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-10-06T15:49:08+08:00" content="2019-10-06">
-          10-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/post/poj 3436/" itemprop="url">
-            
-              <span itemprop="name">Poj 3436 [网络流]+[打印路径]</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-26T22:18:03+08:00" content="2019-09-26">
-          09-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/post/poj3268/" itemprop="url">
-            
-              <span itemprop="name">Poj 3268 [Dijkstra]</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-26T22:12:11+08:00" content="2019-09-26">
-          09-26
-        </time>
-      </div>
-
-    </header>
-  </article>
+<p>​        可见A-C的最小值为5，这时，我们可以联想到什么呢，最短路，图的建立与图的结果与最短路很相似，我们就可以使用最短路的方法来求最长路，就只需要将判断的符号改变。</p>
+<p>​        针对本题，仅有的n个条件是不足以将所有的点连接成连通图的，但是，还有个隐含条件就是<strong>s[i]-s[i-1] &lt;= 1 s[i]-s[i-1] &gt;= 0</strong> 这时我们就可以将所有点连接成连通图。</p>
+<p>3）求最长路</p>
+<p>​        在差分约束系统中，常常存在负环，这时，使用dijkstra是无法得到结果的，我们就需要使用bellman_ford或者spfa，对于spfa(毕竟spfa更简单),cnt数组记录入队次数，若超过所有点的个数，则表明无法得到结果及时跳出循环。最终的结果就是，spfa从最小点mi出发，在mx结束中存留的结果。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXN = <span class="number">5e4</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Edge</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> from,to,cost;</span><br><span class="line">    <span class="keyword">int</span> next;</span><br><span class="line">&#125;edges[MAXN * <span class="number">10</span>];</span><br><span class="line"><span class="keyword">int</span> mx = <span class="number">0</span>,mi = inf;</span><br><span class="line"><span class="keyword">int</span> dis[MAXN],inque[MAXN],cnt[MAXN];</span><br><span class="line"><span class="keyword">int</span> head[MAXN],tot = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">addedge</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b,<span class="keyword">int</span> cost)</span></span>&#123;</span><br><span class="line">    edges[tot].from = a;</span><br><span class="line">    edges[tot].to = b;</span><br><span class="line">    edges[tot].cost = cost;</span><br><span class="line">    edges[tot].next = head[a];</span><br><span class="line">    head[a] = tot++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">spfa</span><span class="params">(<span class="keyword">int</span> s)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    dis[s] = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt;que;</span><br><span class="line">    que.push(s);</span><br><span class="line">    inque[s]  = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(!que.empty())&#123;</span><br><span class="line">        <span class="keyword">int</span> hd = que.front();</span><br><span class="line">        que.pop();</span><br><span class="line">        inque[hd] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = head[hd];i != <span class="number">-1</span>;i = edges[i].next)&#123;</span><br><span class="line">            Edge &amp;e = edges[i];</span><br><span class="line">            <span class="keyword">if</span>(dis[e.to] &lt; dis[hd] + e.cost)&#123;</span><br><span class="line">                dis[e.to] = dis[hd] + e.cost;</span><br><span class="line">                <span class="keyword">if</span>(!inque[e.to])&#123;</span><br><span class="line">                    inque[e.to] = <span class="number">1</span>;</span><br><span class="line">                    que.push(e.to);</span><br><span class="line">                    cnt[e.to]++;</span><br><span class="line">                    <span class="keyword">if</span>(cnt[e.to] &gt; mx - mi + <span class="number">1</span>)</span><br><span class="line">                         <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(head,<span class="number">-1</span>,<span class="keyword">sizeof</span>(head));</span><br><span class="line">    fill(dis,dis+MAXN,-inf);</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;++i)&#123;</span><br><span class="line">        <span class="keyword">int</span> a,b,c;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;a&gt;&gt;b&gt;&gt;c;</span><br><span class="line">        mx = max(mx,b);</span><br><span class="line">        mi = min(mi,a);</span><br><span class="line">        addedge(a,b+<span class="number">1</span>,c);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = mi;i &lt;= mx;++i)&#123;</span><br><span class="line">        addedge(i,i+<span class="number">1</span>,<span class="number">0</span>);</span><br><span class="line">        addedge(i+<span class="number">1</span>,i,<span class="number">-1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(spfa(mi)) <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,dis[mx+<span class="number">1</span>]);</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"-1\n"</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
     </div>
 
+    
+
+    
+    
+    
+	
+	<div>
+	
+	<div>
+    
+        <div style="text-align:center;color: #636363;font-size:14px;letter-spacing: 10px">本文结束<i class="fa fa-bell"></i>感谢您的阅读</div>
+    
+</div>
+	
+	</div>
+	
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/差分约束/" rel="tag"># 差分约束</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/post/poj1112/" rel="next" title="Poj 1112 [二分图染色]+[背包DP]">
+                <i class="fa fa-chevron-left"></i> Poj 1112 [二分图染色]+[背包DP]
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/categories/解题报告/page/2/">2</a><a class="extend next" rel="next" href="/categories/解题报告/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
+  </article>
 
 
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -638,8 +644,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -809,6 +824,23 @@
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#题意"><span class="nav-number">1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解"><span class="nav-number">2.</span> <span class="nav-text">题解</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
 
@@ -938,6 +970,10 @@
 
 
   
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
 
   
 
@@ -965,9 +1001,28 @@
 </script>
 
 
+<script>
+  var disqus_config = function() {
+    this.page.url = "http://rainyblog.top/post/poj1201/";
+    this.page.identifier = "post/poj1201/";
+    this.page.title = 'Poj 1201 [差分约束] + [Spfa]';
+    };
+  function loadComments() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://Rainy.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', '' + +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  
+    window.addEventListener('load', loadComments, false);
+  
+</script>
 
 
 
+
+
+  
 
 
   
@@ -1299,38 +1354,32 @@
   
   <script>
     
-    function showTime(Counter) {
-      var entries = [];
+    function addCount(Counter) {
       var $visitors = $('.leancloud_visitors');
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
 
-      $visitors.each(function() {
-        entries.push( $(this).attr('id').trim() );
-      });
-
-      Counter('get', '/classes/Counter', { where: JSON.stringify({ url: { '$in': entries } }) })
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
         .done(function({ results }) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
-
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
-
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.url;
-            var time = item.time;
-            var element = document.getElementById(url);
-
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for (var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if (countSpan.text() == '') {
-              countSpan.text(0);
-            }
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': 1 } }))
+            
+              .done(function() {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.time + 1);
+              })
+            
+              .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+              })
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! More info at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
           }
         })
         .fail(function ({ responseJSON }) {
@@ -1355,9 +1404,9 @@
             });
           };
           
-            if ($('.post-title-link').length >= 1) {
-              showTime(Counter);
-            }
+            const localhost = /http:\/\/(localhost|127.0.0.1|0.0.0.0)/;
+            if (localhost.test(document.URL)) return;
+            addCount(Counter);
           
         });
     });

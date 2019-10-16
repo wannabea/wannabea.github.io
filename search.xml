@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Poj 1201 [差分约束] + [Spfa]]]></title>
+    <url>%2Fpost%2Fpoj1201%2F</url>
+    <content type="text"><![CDATA[题意给出n行数据，每行三个数a,b,c,代表[a,b]的闭区间内，至少有c个点被标记，求被标记的最少的点数。 题解1）转化 ​ 我们设置一个s数组，s[i]可以代表第0 - i中被标记的点，则一组数据中a,b,c则表示为s[b] - s[a-1] &gt;= c这样的话， s数组的下界就变成了s[-1],为了避免-1的出现，我们将所有的i+1,即s[i+1]代表0 - i中被标记的点数量。这时我们可以得到s[b+1] - s[a] &gt;= c 我们将s[i]看作一个点，c的值为 b+1 - a的权值，我们要求的，也就是最大的b到最小的a点之间，存在多少被标记的点. 2）建图 ​ 我们首先要了解差分约束的概念，加入我们有三个式子， ​ A - B &gt;= 2 ​ B - C &gt;= 3 ​ A - C &gt;= 4 ​ 就可以由此建图如下 ​ 可见A-C的最小值为5，这时，我们可以联想到什么呢，最短路，图的建立与图的结果与最短路很相似，我们就可以使用最短路的方法来求最长路，就只需要将判断的符号改变。 ​ 针对本题，仅有的n个条件是不足以将所有的点连接成连通图的，但是，还有个隐含条件就是s[i]-s[i-1] &lt;= 1 s[i]-s[i-1] &gt;= 0 这时我们就可以将所有点连接成连通图。 3）求最长路 ​ 在差分约束系统中，常常存在负环，这时，使用dijkstra是无法得到结果的，我们就需要使用bellman_ford或者spfa，对于spfa(毕竟spfa更简单),cnt数组记录入队次数，若超过所有点的个数，则表明无法得到结果及时跳出循环。最终的结果就是，spfa从最小点mi出发，在mx结束中存留的结果。 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475#include &lt;cstdio&gt;#include &lt;iostream&gt;#include &lt;algorithm&gt;#include &lt;queue&gt;#include &lt;cstring&gt;using namespace std;const int MAXN = 5e4 + 10;const int inf = 0x3f3f3f3f;struct Edge&#123; int from,to,cost; int next;&#125;edges[MAXN * 10];int mx = 0,mi = inf;int dis[MAXN],inque[MAXN],cnt[MAXN];int head[MAXN],tot = 0;void addedge(int a,int b,int cost)&#123; edges[tot].from = a; edges[tot].to = b; edges[tot].cost = cost; edges[tot].next = head[a]; head[a] = tot++;&#125;bool spfa(int s)&#123; dis[s] = 0; queue&lt;int&gt;que; que.push(s); inque[s] = 1; while(!que.empty())&#123; int hd = que.front(); que.pop(); inque[hd] = 0; for(int i = head[hd];i != -1;i = edges[i].next)&#123; Edge &amp;e = edges[i]; if(dis[e.to] &lt; dis[hd] + e.cost)&#123; dis[e.to] = dis[hd] + e.cost; if(!inque[e.to])&#123; inque[e.to] = 1; que.push(e.to); cnt[e.to]++; if(cnt[e.to] &gt; mx - mi + 1) return 0; &#125; &#125; &#125; &#125; return 1;&#125;int main()&#123; memset(head,-1,sizeof(head)); fill(dis,dis+MAXN,-inf); int n; cin&gt;&gt;n; for(int i = 0;i &lt; n;++i)&#123; int a,b,c; cin&gt;&gt;a&gt;&gt;b&gt;&gt;c; mx = max(mx,b); mi = min(mi,a); addedge(a,b+1,c); &#125; for(int i = mi;i &lt;= mx;++i)&#123; addedge(i,i+1,0); addedge(i+1,i,-1); &#125; if(spfa(mi)) printf("%d\n",dis[mx+1]); else printf("-1\n"); return 0;&#125;]]></content>
+      <categories>
+        <category>解题报告</category>
+      </categories>
+      <tags>
+        <tag>差分约束</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Poj 1112 [二分图染色]+[背包DP]]]></title>
     <url>%2Fpost%2Fpoj1112%2F</url>
     <content type="text"><![CDATA[菜鸡wa着wa着就哭了ಥ_ಥ，看了n个大佬的博客，终于差不多搞懂了，果然我就是个连背包都不会的菜鸡😢 大佬博客链接：https://blog.csdn.net/u013007900/article/details/38512039 题目链接：http://poj.org/problem?id=1112 题意有n个人，每个人认识若干个人（单向认识），我们要把他们分成两组，每组组内的人都必须互相认识彼此，并且让两组人数尽量相等。 题解题意很简单….我就上去搞了个无向图求连通分量，停滞了若干分钟后，发现自己就是个憨憨…？ 正解是： 1）先建有向图，再建无向图的补图 ​ 因为条件是彼此相识，所以单边等于无边，而双边就等于无向边。我们需要换一个方向思考，求出无向图的补图。 2）DFS对补图求连通分量同时染色 ​ 补图中的边是指彼此不相识，那么相连两点必定颜色不同，所以再染色中若一点颜色为0，则与之相连的点均为1。而在补图中任意两个不同的连通分量中的点，必定相识。 3）判断染色是否成功 ​ 在染色后，需要判断同一个连通分量中两个同颜色的点间是否存在边，若存在，则无解输出“No solution” 4）01背包求联通状态 ​ 背包DP，确定最终的分配状态。bool数组$$dp[i][j]$$表示在加入第i个连通分量后，team1中存在j个人。 5）分配构造接近的两组 ​ $$dp[cnt]$$(cnt代表连通分量的个数)中存储的就是team1中可以存在的人数（若$$dp[cnt][i]$$为true,则有一种方案为team1存在i个人，team2中存在n-i个人）。 ​ 同时注意如果某一组人数为0，则无解 6）回溯输出 ​ 一个一个减少连通分量，将此时的点压入对应的队伍中，最后合并输出。 代码123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117118119120121122123124125126127128129130131132133134135136137#include &lt;iostream&gt;#include &lt;algorithm&gt;#include &lt;vector&gt;#include &lt;cstdio&gt;#include &lt;queue&gt;#include &lt;cstring&gt;using namespace std;const int MAXN = 300 + 10;int n;int k[MAXN][MAXN],r[MAXN][MAXN],scnt;int vis[MAXN] ,dp[MAXN][MAXN];vector&lt;int&gt; v[MAXN][2];int flag[MAXN][MAXN];void dfs(int u,int e,int cnt) //染色+求连通分量&#123; vis[u] = e; v[cnt][e].push_back(u); for(int i = 1;i &lt;= n;++i)&#123; if(vis[i] == -1 &amp;&amp; r[u][i] == 1)&#123; dfs(i,e^1,cnt); &#125; &#125;&#125;void DP() //01背包&#123; dp[0][0] = 1; for(int i = 1;i &lt;= scnt;++i)&#123; for(int j = v[i][0].size();j &lt;= n;++j)&#123; if(!dp[i][j] &amp;&amp; dp[i-1][j-v[i][0].size()]) dp[i][j] = 1,flag[i][j] = 0; &#125; for(int j = v[i][1].size();j &lt;= n;++j)&#123; if(!dp[i][j] &amp;&amp; dp[i-1][j-v[i][1].size()]) dp[i][j] = 1,flag[i][j] = 1; &#125; &#125;&#125;bool fit(int x) //检查染色结果&#123; for(int i = 0;i &lt; v[x][0].size();++i)&#123; for(int j = 0;j &lt; v[x][0].size();++j)&#123; if(r[v[x][0][i]][v[x][0][j]] == 1) return 0; &#125; &#125; for(int i = 0;i &lt; v[x][1].size();++i)&#123; for(int j = 0;j &lt; v[x][1].size();++j)&#123; if(r[v[x][1][i]][v[x][1][j]] == 1) return 0; &#125; &#125; return 1;&#125;int main()&#123; memset(vis,-1,sizeof(vis)); memset(k,0,sizeof(k)); memset(r,0,sizeof(r)); scnt = 0; memset(dp,0,sizeof(dp)); memset(flag,0,sizeof(flag)); for(int i = 0;i &lt; MAXN;++i) v[i][0].clear(),v[i][1].clear(); cin&gt;&gt;n; for(int i = 1;i &lt;= n;++i)&#123; int p; while(cin&gt;&gt;p &amp;&amp; p)&#123; k[i][p] = 1; &#125; &#125; for(int i = 1;i &lt;= n;++i)&#123; for(int j = 1;j &lt;= n;++j)&#123; if(i == j || (k[i][j] &amp;&amp; k[j][i])) continue; r[i][j] = r[j][i] = 1; &#125; &#125; scnt = 0; for(int i = 1;i &lt;= n;++i)&#123; if(vis[i] == -1)&#123; scnt++; dfs(i,0,scnt); &#125; &#125; for(int i = 1;i &lt;= scnt;++i)&#123; if(!fit(i)) &#123; puts("No solution"); return 0; &#125; &#125; DP(); int gap = n,tmp1=0,tmp2=0; for(int i = 1;i &lt;= n;++i)&#123; if(dp[scnt][i] &amp;&amp; abs(2*i-n) &lt; gap)&#123; tmp1 = i; gap = abs(2*i-n); &#125; &#125; tmp2 = n - tmp1; if(!tmp1 || !tmp2)&#123; //回溯处理答案 puts("No solution"); return 0; &#125; else&#123; vector&lt;int&gt; ans1,ans2; for(int i = scnt;i&gt;0;--i)&#123; if(flag[i][tmp1])&#123; for(int j = 0;j &lt; v[i][1].size();++j)&#123; ans1.push_back(v[i][1][j]); &#125; for(int j = 0;j &lt; v[i][0].size();++j)&#123; ans2.push_back(v[i][0][j]); &#125; tmp1-=v[i][1].size(); &#125; else&#123; for(int j = 0;j &lt; v[i][1].size();++j)&#123; ans2.push_back(v[i][1][j]); &#125; for(int j = 0;j &lt; v[i][0].size();++j)&#123; ans1.push_back(v[i][0][j]); &#125; tmp1-=v[i][0].size(); &#125; &#125; printf("%d",ans1.size()); //合并输出 for(int i = 0; i &lt; ans1.size();++i) printf(" %d",ans1[i]); printf("\n%d",ans2.size()); for(int i = 0; i &lt; ans2.size();++i) printf(" %d",ans2[i]); puts(""); &#125; return 0;&#125;]]></content>
@@ -209,8 +220,8 @@
       </categories>
       <tags>
         <tag>ICPC</tag>
-        <tag>板子</tag>
         <tag>模拟</tag>
+        <tag>板子</tag>
       </tags>
   </entry>
   <entry>
@@ -222,8 +233,8 @@
       </categories>
       <tags>
         <tag>ICPC</tag>
-        <tag>数据结构</tag>
         <tag>板子</tag>
+        <tag>数据结构</tag>
       </tags>
   </entry>
 </search>
